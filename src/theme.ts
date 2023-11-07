@@ -1,4 +1,5 @@
 import {extendTheme} from '@chakra-ui/react'
+import { tabsTheme } from './theme/Tabs'
 
 const sizes = {
     sizes: {
@@ -14,6 +15,9 @@ const theme = extendTheme({
             200: "#D8DFFC",
             700: "#3430D1",
         }
+    },
+    components: {
+        Tabs: tabsTheme
     }
 })
 

@@ -13,14 +13,17 @@
     "theme": "chakra-cli tokens src/theme.ts"
   },
   "dependencies": {
+    "@chakra-ui/anatomy": "^2.2.1",
     "@chakra-ui/react": "^2.8.1",
     "@chakra-ui/styled-system": "^2.9.1",
+    "@chakra-ui/theme-tools": "^2.1.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@storybook/addon-storysource": "^7.5.2",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "rehype-highlight": "^7.0.0"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.4.1",
@@ -29,6 +32,7 @@
     "@storybook/addon-links": "7.5.2",
     "@storybook/addon-onboarding": "1.0.8",
     "@storybook/blocks": "7.5.2",
+    "@storybook/preview-api": "^7.5.2",
     "@storybook/react": "7.5.2",
     "@storybook/react-vite": "7.5.2",
     "@storybook/testing-library": "0.2.2",

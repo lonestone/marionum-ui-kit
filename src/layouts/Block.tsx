@@ -11,14 +11,15 @@ interface BlockProps {
      * Vertical padding inside the blocks.
      */
     paddingY?: SpaceProps["paddingY"]
+    paddingTop?: SpaceProps["paddingTop"]
     children?: ReactNode;
 }
 
-export const Block = ({backgroundColor, paddingY, children}: BlockProps) => (
+export const Block = ({backgroundColor, paddingY, paddingTop, children}: BlockProps) => (
     // paddingX to avoid content being too close to page border
-    <Box w="100%" bg={backgroundColor} paddingX="32px">
+    <Box w="100%" bg={backgroundColor} paddingX="32px" borderBottom="1px"borderBottomColor="Marionum.200" >
         {/* margin 0 auto to center the content, maxWidth is content expected width */}
-        <Box m="0 auto" maxWidth="sizes.content" paddingY={paddingY}>
+        <Box m="0 auto" maxWidth="sizes.content" paddingY={paddingY} paddingTop={paddingTop}>
             {children}
         </Box>
     </Box>

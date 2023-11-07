@@ -1,0 +1,22 @@
+import NavigationBlockTxt from "./NavigationBlock.tsx?raw";
+
+import { Canvas, Controls, Source, Meta } from '@storybook/blocks';
+import * as Stories from './NavigationBlock.stories.tsx';
+
+<Meta title="MarioNUM/Examples/Navigation" />
+
+# Navigation
+
+Bloc de navigation présent en haut de toutes les pages.
+
+## Rendu
+
+<Canvas of={Stories.Default} sourceState="shown" />
+
+<Controls of={Stories.Default} />
+
+## Référence d'implémentation
+
+Copier/Coller le code suivant dans votre projet pour servir de base d'implémentation :
+
+<Source code={NavigationBlockTxt} dark />
