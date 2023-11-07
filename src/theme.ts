@@ -1,5 +1,6 @@
 import {extendTheme} from '@chakra-ui/react'
 import { tabsTheme } from './theme/Tabs'
+import { buttonTheme } from './theme/Button'
 
 const sizes = {
     sizes: {
@@ -12,12 +13,19 @@ const theme = extendTheme({
     colors: {
         Marionum: {
             50: "#F4F7FE",
+            100: "#EAEDFD",
             200: "#D8DFFC",
+            400: "#909CF5",
+            500: "#636BEF",
+            600: "#4242E5",
             700: "#3430D1",
+            800: "#2B28AF",
+            950: "#141562",
         }
     },
     components: {
-        Tabs: tabsTheme
+        Tabs: tabsTheme,
+        Button: buttonTheme
     }
 })
 

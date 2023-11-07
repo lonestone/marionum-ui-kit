@@ -1,6 +1,6 @@
 import {Block} from "../../../layouts/Block.tsx";
 import {Flex, Spacer, Tab, TabIndicator, TabList, Tabs} from "@chakra-ui/react";
-import {Button} from "../../Button.tsx";
+import {Button} from "../../components/Button/Button.tsx";
 
 export type NavigationBlockProps = {
     tabIndex: 0,
@@ -23,8 +23,8 @@ export const NavigationBlock = ({tabIndex, handleTabsChange}: NavigationBlockPro
                 </Tabs>
                 <Spacer/>
                 <Flex alignItems="center" shrink={0} gap="16px">
-                    <Button label="Module"/>
-                    <Button label="Ouvrir un ticket" primary/>
+                    <Button variant="primary">Module</Button>
+                    <Button variant="secondary">Ouvrir un ticket</Button>
                 </Flex>
             </Flex>
         </Block>
