@@ -1,6 +1,6 @@
 import {extendTheme} from '@chakra-ui/react'
-import { tabsTheme } from './theme/Tabs'
-import { buttonTheme } from './theme/Button'
+import { tabsTheme } from './Tabs.ts'
+import { buttonTheme } from './Button.ts'
 
 const sizes = {
     sizes: {

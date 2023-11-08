@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {Button} from './Button';
+import {Button} from './Button.tsx';
 import {Flex} from "@chakra-ui/react";
-import {FileQuestionIcon} from "../../../components/FileQuestionIcon.tsx";
-import {DropDownIcon} from "../../../components/DrowDownIcon.tsx";
-import {SuspensionPointsIcon} from '../../../components/SuspensionPointsIcon.tsx';
-import {DropRightIcon} from "../../../components/DrowRightIcon.tsx";
-import {CrossIcon} from "../../../components/CrossIcon.tsx";
+import {FileQuestionIcon} from "./FileQuestionIcon.tsx";
+import {SuspensionPointsIcon} from './SuspensionPointsIcon.tsx';
+import {CrossIcon} from "./CrossIcon.tsx";
+import {DropDownIcon} from "./DropDownIcon.tsx";
+import {DropRightIcon} from "./DropRightIcon.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {

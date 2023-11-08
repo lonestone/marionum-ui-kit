@@ -1,0 +1,143 @@
+import {Meta, Source} from "@storybook/blocks";
+
+<Meta title="Le UI-Kit"/>
+
+# MarioNUM UI-Kit
+
+Cette documentation explique comment utiliser le ui-kit développé pour MarionNUM.
+
+Ce ui kit est basé sur le design system décrit sur figma: [https://www.figma.com/file/HBwXYcCGP16rjdNzF519pu/Marionum?node-id=1%3A2&mode=dev](https://www.figma.com/file/HBwXYcCGP16rjdNzF519pu/Marionum?node-id=1%3A2&mode=dev)
+
+> Nomenclature :
+> - *"ui kit"* désigne ce projet de ui kit pour MarioNUM.
+> - *"projet applicatif"* désigne le projet qui utilisera ce ui-kit, cela peut être MarioNUM ou tout autre projet.
+
+## Contenu du kit
+
+Ce UI-Kit contient 3 éléments :
+- Un ensemble de composants React en TypeScript
+    - Les **composants** (package `marionum-ui-kit/components`) sont des éléments de contenu prêt à l'emploi.
+    - Les **layouts**  (package `marionum-ui-kit/layouts`) sont des éléments de présentation, qui servent à structurer les pages.
+- Un **thème Chakra-ui**
+- La présente **documentation**
+    - Cette page de démarrage
+    - Une page de documentation pour chaque composant ou layout prêt à l'emploi du ui-kit
+    - Une page d'exemple pour chaque élément du Figma (page ou block) qui nécessite un montage plus complèxe. Ces exemples sont conçus pour servir de base d'implémentation, ils pourront être copié/collé dans le projet applicatif puis modifiés selon les besoins.
+
+## Points d'entrée
+
+Les points d'entrée suivants sont disponibles :
+- Le thème Chakra UI : `import {theme} from 'marionum-ui-kit'`
+- Les composants du kit : `import {Button} from 'marionum-ui-kit/components'`
+- Les layouts du kit : `import {Block} from 'marionum-ui-kit/layouts'`
+
+## Installation et configuration du projet
+
+
+### Importer le ui-kit dans le projet applicatif
+
+**Pré-requis:** la méthode proposée ici part du principe que :
+- le code du ui-kit est récupéré depuis le fichier zip fournit
+- pnpm est utilisé dans le projet cible pour gérer les packets (npm fonctionne de la même façon)
+- le projet applicatif qui utilisera le ui-kit est déjà créé et paramétré avec TypeScript et React 18.2
+
+> Ce ui-kit est une bibliothèque exporté comme module ECMAScript (esm) et Universal Module Definition (umd).
+> Il peut donc être importé de la manière de votre choix dans le projet applicatif: par exemple être hébergé sur un dépôt de
+> packets comme npm ou sur un dépôt git.
+
+**Étape 1. Décompresser le contenu du zip dans le même dossier parent que le projet applicatif**
+
+Celà devrait créer un nouveau dossier "marionum-ui-kit" à côté du dossier projet.
+
+**Étape 2. Configurer package.json**
+
+Dans le projet applicatif, importer "marionum-ui-kit" en ajoutant une référence dans le package.json:
+
+<Source language="json" code={`
+// package.json
+{
+    "dependencies": {
+        "marionum-ui-kit": "file:../marionum-ui-kit"
+    }
+}
+`}/>
+
+**Étape 3. Installer la dépendance**
+
+Exécuter la commande suivante dans le dossier du projet applicatif : `pnpm i`
+
+### Configurer le projet
+
+Les étapes nécessaires pour faire fonction Chakra UI et le ui kit sont synthétisées ici, si besoin de plus d'information vous pouvez vous référer à la documentation de Chakra UI: [https://chakra-ui.com/getting-started](https://chakra-ui.com/getting-started)
+
+**Étape 1. Installer le thème et ChakraProvider**
+
+La ui-kit s'appuie sur Chakra et propose un thème préconfiguré. Pour l'utiliser, ajouter le ChakraProvider à la racine de l'application React :
+
+<Source language="tsx" code={`
+import * as React from 'react'
+// 1. import 'ChakraProvider' component and the theme from ui-kit
+import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from 'marionum-ui-kit'
+
+function App() {
+  // 2. Wrap ChakraProvider at the root of your app
+  return (
+    <ChakraProvider theme={theme}>
+      <TheRestOfYourApplication />
+    </ChakraProvider>
+  )
+}
+`}/>
+
+## Utilisation des composants
+
+La plupart des pages et layouts disposent d'exemples d'utilisation dans cette documentation.
+Voici un exemple commenté d'utilisation du Header :
+
+<Source language="tsx" code={`
+// MyApp/components/MyHeader.tsx
+
+// Les composants react de chakra-ui peuvent être utilisés librement
+import {Avatar, Flex, Image, Spacer, Text} from "@chakra-ui/react";
+
+// Import d'un élément de layout depuis "marionum-ui-kit/layouts"
+import {Block} from "marionum-ui-kit/layouts";
+
+// Import d'un composant depuis "marionum-ui-kit/components"
+import {NotificationIcon} from "marionum-ui-kit/components";
+
+// Typage des props du composants
+export type HeaderBlockProps = {
+    notify?: boolean,
+    logoURL: string,
+    avatarURL: string,
+    accountHref: string,
+    homeHref: string,
+    handleClickNotif: React.MouseEventHandler<HTMLButtonElement>,
+};
+
+// Reférence d'implémentation du composant, à modifier pour ajouter la récupération de données, les interactions, etc.
+export const HeaderBlock = ({notify, avatarURL, logoURL, homeHref, accountHref, handleClickNotif}: HeaderBlockProps) => {
+    return (
+        <Block backgroundColor="Marionum.50" paddingY="30px">
+            <Flex alignItems="center">
+                <Flex alignItems="center" shrink={0} gap="24px">
+                    <a href={homeHref}>
+                        <Image h="54px" w="93px" src={logoURL} backgroundColor="#293358" alt="MarioNUM"/>
+                    </a>
+                    <h1>
+                        <Text fontSize="xs" lineHeight="4" fontWeight="semibold" as="span">MarioNUM</Text>
+                        <Text fontSize="xs" lineHeight="4" as="span"> de Sorbonne Paris Nord</Text>
+                    </h1>
+                </Flex>
+                <Spacer/>
+                <Flex alignItems="center" shrink={0} gap="16px">
+                    <button onClick={handleClickNotif}><NotificationIcon boxSize="24px" notify={notify}/></button>
+                    <a href={accountHref}><Avatar src={avatarURL}/></a>
+                </Flex>
+            </Flex>
+        </Block>
+    );
+}
+`}/>

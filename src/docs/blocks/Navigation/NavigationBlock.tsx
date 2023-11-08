@@ -1,6 +1,6 @@
 import {Block} from "../../../layouts/Block.tsx";
 import {Flex, Spacer, Tab, TabIndicator, TabList, Tabs} from "@chakra-ui/react";
-import {Button} from "../../components/Button/Button.tsx";
+import {Button} from "../../../components/Button.tsx";
 
 export type NavigationBlockProps = {
     tabIndex: 0,
