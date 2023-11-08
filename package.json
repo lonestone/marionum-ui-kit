@@ -1,7 +1,7 @@
 {
   "name": "marionum-ui-kit",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "./dist/marionum-ui-kit.umd.cjs",
   "module": "./dist/marionum-ui-kit.js",
@@ -20,7 +20,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "theme": "chakra-cli tokens src/theme/index.ts"
+    "theme": "chakra-cli tokens src/theme/index.ts",
+    "chromatic": "npx chromatic --project-token=chpt_8af55a34226bf58"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
@@ -50,6 +51,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "chromatic": "^7.6.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -59,5 +61,7 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.3"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "marionum-ui-kit@0.0.3"
 }
