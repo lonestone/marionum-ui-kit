@@ -14,7 +14,7 @@ export default defineConfig({
             fileName: 'marionum-ui-kit',
         },
         rollupOptions: {
-            external: ['react', 'react-dom'],
+            external: ['react', 'react-dom', '@chakra-ui/anatomy', '@chakra-ui/anatomy', '@chakra-ui/react', '@chakra-ui/theme-tools', '@emotion/styled-system', '@emotion/styled', 'framer-motion'],
         },
         minify: "esbuild",
     },
