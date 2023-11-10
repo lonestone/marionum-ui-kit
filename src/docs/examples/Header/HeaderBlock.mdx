@@ -1,4 +1,4 @@
-import HeaderBlockTxt from "./HeaderBlock.tsx?raw";
+import HeaderBlockTxt from "./HeaderExample.tsx?raw";
 
 import { Canvas, Controls, Source, Meta } from '@storybook/blocks';
 import * as Stories from './HeaderBlock.stories.tsx';
@@ -11,9 +11,9 @@ Bloc d'en-tête présent en haut de toutes les pages.
 
 ## Rendu
 
-<Canvas of={Stories.Default} sourceState="shown" />
+<Canvas of={Stories.Header} sourceState="shown" />
 
-<Controls of={Stories.Default} />
+<Controls of={Stories.Header} />
 
 ## Référence d'implémentation
 

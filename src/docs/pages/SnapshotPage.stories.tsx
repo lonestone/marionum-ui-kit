@@ -1,17 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SnapshotPage } from './SnapshotPage';
+import { SnapshotPage } from './SnapshotPage.tsx';
 
 const meta = {
-  title: 'MarioNUM/Pages/Snapshot',
+  title: 'MarioNUM/Examples/Stories',
   component: SnapshotPage,
   parameters: {
     layout: 'fullscreen',
-  },
-  tags: ['autodocs']
+  }
 } satisfies Meta<typeof SnapshotPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const PageDeSnapshot: Story = {};

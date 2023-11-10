@@ -3,10 +3,10 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import logoURL from "../../../assets/Placeholder.png";
 import {useArgs} from '@storybook/preview-api';
-import {HeaderBlock, HeaderBlockProps} from "./HeaderBlock.tsx";
+import {HeaderExample, HeaderExampleProps} from "./HeaderExample.tsx";
 
 const meta = {
-    title: 'MarioNUM/Examples/All Stories/Header',
+    title: 'MarioNUM/Examples/Stories',
     parameters: {
         layout: 'fullscreen',
         docs: {
@@ -16,9 +16,9 @@ const meta = {
 } satisfies Meta;
 
 export default meta;
-type Story = StoryObj<HeaderBlockProps>;
+type Story = StoryObj<HeaderExampleProps>;
 
-export const Default: Story = {
+export const Header: Story = {
     render: ({notify, avatarURL, logoURL, homeHref, accountHref}) => {
         const [, updateArgs] = useArgs();
 
@@ -26,7 +26,7 @@ export const Default: Story = {
             updateArgs({notify: !notify});
         }
 
-        return <HeaderBlock
+        return <HeaderExample
             notify={notify}
             avatarURL={avatarURL}
             logoURL={logoURL}

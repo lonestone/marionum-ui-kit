@@ -18,4 +18,9 @@ export default defineConfig({
         },
         minify: "esbuild",
     },
+    resolve:{
+        alias:{
+            "marionum-ui-kit": resolve(__dirname, 'src/index.ts')
+        }
+    }
 })

@@ -1,8 +1,8 @@
-import {Block} from "../../../layouts/Block.tsx";
+import {Block, NotificationIcon} from "marionum-ui-kit";
 import {Avatar, Flex, Image, Spacer, Text} from "@chakra-ui/react";
-import {NotificationIcon} from "../../../components/NotificationIcon.tsx";
+import logoURL from "../../../assets/Placeholder.png";
 
-export type HeaderBlockProps = {
+export type HeaderExampleProps = {
     notify?: boolean,
     logoURL: string,
     avatarURL: string,
@@ -11,9 +11,19 @@ export type HeaderBlockProps = {
     handleClickNotif: React.MouseEventHandler<HTMLButtonElement>,
 };
 
-export const HeaderBlock = ({notify, avatarURL, logoURL, homeHref, accountHref, handleClickNotif}: HeaderBlockProps) => {
+export const exampleHeaderProps: HeaderExampleProps = {
+    notify: true,
+    logoURL,
+    avatarURL: 'https://bit.ly/sage-adebayo',
+    accountHref: '#mon-compte',
+    homeHref: '#home',
+    handleClickNotif: () => {
+    }
+}
+
+export const HeaderExample = ({notify, avatarURL, logoURL, homeHref, accountHref, handleClickNotif}: HeaderExampleProps) => {
     return (
-        <Block backgroundColor="Marionum.50" paddingY="30px">
+        <Block backgroundColor="Marionum.50" paddingY="30px" hasBottomBorder>
             <Flex alignItems="center">
                 <Flex alignItems="center" shrink={0} gap="24px">
                     <a href={homeHref}>

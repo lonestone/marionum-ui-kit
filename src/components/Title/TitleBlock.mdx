@@ -1,0 +1,27 @@
+import {Canvas, Source, Meta} from '@storybook/blocks';
+import * as Stories from './TitleBlock.stories.tsx';
+
+<Meta title="MarioNUM/Components/Title"/>
+
+# Title
+
+Bloc de navigation présent en haut de toutes les pages.
+
+## Rendu
+
+### Sort and Search
+
+<Canvas of={Stories.Default} sourceState="shown"/>
+
+### With Progress
+
+<Canvas of={Stories.WithStepProgress} sourceState="shown"/>
+
+### Only Title
+
+<Canvas of={Stories.OnlyTitle} sourceState="shown"/>
+
+### With Button
+
+On remarquera sur le bouton le `size="lg"`, ce bouton de titre est un peu plus gros que les boutons standards
+<Canvas of={Stories.WithButton} sourceState="shown"/>

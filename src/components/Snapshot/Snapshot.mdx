@@ -1,0 +1,17 @@
+import {Canvas, Meta, Source} from '@storybook/blocks';
+import * as Stories from './Snapshot.stories.tsx';
+import SnapshotTxt from "./Snapshot.tsx?raw";
+
+<Meta title="MarioNUM/Components/Snapshot"/>
+
+# Snapshot
+
+## Utilisation
+
+<Canvas of={Stories.Default} sourceState="shown"/>
+
+## Implémentation
+
+Contrairement aux exemples, ce composant est utilisable en l'état ! Si toutefois vous deviez le réimplémenter, voici le code de référence.
+
+<Source code={SnapshotTxt} dark />

@@ -1,0 +1,17 @@
+import {Canvas, Meta, Source} from '@storybook/blocks';
+import * as Stories from './Comment.stories.tsx';
+import CommentTxt from "./Comment.tsx?raw";
+
+<Meta title="MarioNUM/Components/Comment"/>
+
+# Comment
+
+## Utilisation
+
+<Canvas of={Stories.Default} sourceState="shown"/>
+
+## Implémentation
+
+Contrairement aux exemples, ce composant est utilisable en l'état ! Si toutefois vous deviez le réimplémenter, voici le code de référence.
+
+<Source code={CommentTxt} dark/>

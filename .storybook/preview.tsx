@@ -1,6 +1,7 @@
 import type {Preview} from "@storybook/react";
 import {ChakraProvider} from '@chakra-ui/react'
 import theme from '../src/theme'
+import "./doc.css"
 
 const preview: Preview = {
     decorators: [
@@ -17,7 +18,7 @@ const preview: Preview = {
                 color: /(background|color)$/i,
                 date: /Date$/i,
             },
-        },
+        }
     },
 };
 

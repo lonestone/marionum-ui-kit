@@ -1,0 +1,17 @@
+import {Canvas, Meta, Source} from '@storybook/blocks';
+import * as Stories from './Packet.stories.tsx';
+import PacketTxt from "./Packet.tsx?raw";
+
+<Meta title="MarioNUM/Components/Packet"/>
+
+# Packet
+
+## Utilisation
+
+<Canvas of={Stories.Default} sourceState="shown"/>
+
+## Implémentation
+
+Contrairement aux exemples, ce composant est utilisable en l'état ! Si toutefois vous deviez le réimplémenter, voici le code de référence.
+
+<Source code={PacketTxt} dark />

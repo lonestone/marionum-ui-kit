@@ -34,9 +34,6 @@ const secondary = defineStyle({
     borderRadius: '6px',
     color: 'Marionum.700',
     boxSizing: 'content-box',
-    padding: "10px 16px",
-    lineHeight: "16px",
-    height: "16px",
     _hover: {
         bg: 'Marionum.800',
         color: 'white',
@@ -70,9 +67,6 @@ const tertiary = defineStyle({
     borderRadius: '6px',
     color: 'Marionum.700',
     boxSizing: 'content-box',
-    padding: "10px 16px",
-    lineHeight: "16px",
-    height: "16px",
     _hover: {
         bg: 'Marionum.400',
         color: 'white',
@@ -111,7 +105,7 @@ const icon = defineStyle({
     padding: 0
 })
 
-const link = defineStyle({
+const lien = defineStyle({
     ...tertiary,
     bg: 'transparent',
     color: 'Marionum.700',
@@ -168,6 +162,39 @@ const warning = defineStyle({
     },
 })
 
+const sizes = {
+    lg: defineStyle({
+        h: "48px",
+        minW: "48px",
+        fontSize: "lg",
+        px: "24px",
+    }),
+    md: defineStyle({
+        h: "40px",
+        minW: "40px",
+        fontSize: "md",
+        px: "1rem",
+    }),
+    sm: defineStyle({
+        h: "36px",
+        minW: "36px",
+        fontSize: "sm",
+        px: "1rem",
+    }),
+    xs: defineStyle({
+        h: "36px",
+        minW: "36px",
+        fontSize: "xs",
+        px: "1rem",
+    }),
+}
+
 export const buttonTheme = defineStyleConfig({
-    variants: {primary, secondary, tertiary, icon, link, warning},
+    variants: {primary, secondary, tertiary, icon, lien, warning},
+    sizes,
+    defaultProps: {
+        variant: "primary",
+        size: "lg",
+        colorScheme: "Marionum",
+    },
 })

@@ -1,11 +1,11 @@
-import {Button as ChakraButton} from '@chakra-ui/react'
+import {Button as ChakraButton, ButtonProps as ChakraButtonProps} from '@chakra-ui/react'
 import {ReactElement} from "react";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ChakraButtonProps {
     /**
      * Apparence du bouton.
      */
-    variant?: 'primary' | 'secondary' | 'tertiary' | 'icon' | 'link' | 'warning';
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'icon' | 'lien' | 'warning';
 
     /**
      * Icone à affiche à gauche du texte.
@@ -25,7 +25,7 @@ const sizeByVariant = {
     secondary: 'xs',
     tertiary: 'xs',
     icon: 'lg',
-    link: 'sm',
+    lien: 'sm',
     warning: 'lg',
 }
 

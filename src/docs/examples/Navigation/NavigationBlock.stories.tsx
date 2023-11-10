@@ -2,10 +2,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 
 import {useArgs} from '@storybook/preview-api';
-import {NavigationBlock, NavigationBlockProps} from "./NavigationBlock.tsx";
+import {NavigationExample, NavigationBlockProps} from "./NavigationExample.tsx";
 
 const meta = {
-    title: 'MarioNUM/Examples/All Stories/Navigation',
+    title: 'MarioNUM/Examples/Stories',
     parameters: {
         layout: 'fullscreen',
         docs: {
@@ -17,7 +17,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<NavigationBlockProps>;
 
-export const Default: Story = {
+export const Navigation: Story = {
     render: ({tabIndex}) => {
         const [, updateArgs] = useArgs();
 
@@ -25,7 +25,7 @@ export const Default: Story = {
             updateArgs({tabIndex: i});
         }
 
-        return <NavigationBlock
+        return <NavigationExample
             tabIndex={tabIndex}
             handleTabsChange={handleTabsChange}
         />

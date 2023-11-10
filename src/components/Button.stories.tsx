@@ -2,22 +2,18 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import {Button} from './Button.tsx';
 import {Flex} from "@chakra-ui/react";
-import {FileQuestionIcon} from "./FileQuestionIcon.tsx";
-import {SuspensionPointsIcon} from './SuspensionPointsIcon.tsx';
 import {CrossIcon} from "./CrossIcon.tsx";
 import {DropDownIcon} from "./DropDownIcon.tsx";
 import {DropRightIcon} from "./DropRightIcon.tsx";
+import {FileQuestionIcon, SuspensionPointsIcon} from "marionum-ui-kit";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
     title: 'Marionum/Components/Button',
-    component: Button,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
         layout: 'centered',
     },
-    // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-    tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {},
 } satisfies Meta<typeof Button>;
@@ -38,8 +34,8 @@ export const Primary: Story = {
             hover: ['#hover'],
             focus: ['#selected'],
             rootSelector: 'body'
-        }
-    }
+        },
+    },
 };
 
 export const Secondary: Story = {
@@ -91,10 +87,10 @@ export const Icon: Story = {
 
 export const Link: Story = {
     render: () => (<Flex gap="16px">
-        <Button variant="link" rightIcon={<DropRightIcon/>}>Link regular</Button>
-        <Button id="hover" variant="link" rightIcon={<DropRightIcon/>}>Link Hover</Button>
-        <Button id="selected" variant="link" rightIcon={<DropRightIcon/>}>Link selected</Button>
-        <Button variant="link" rightIcon={<DropRightIcon/>} disabled>Link disabled</Button>
+        <Button variant="lien" rightIcon={<DropRightIcon/>}>Link regular</Button>
+        <Button id="hover" variant="lien" rightIcon={<DropRightIcon/>}>Link Hover</Button>
+        <Button id="selected" variant="lien" rightIcon={<DropRightIcon/>}>Link selected</Button>
+        <Button variant="lien" rightIcon={<DropRightIcon/>} disabled>Link disabled</Button>
     </Flex>),
     parameters: {
         pseudo: {

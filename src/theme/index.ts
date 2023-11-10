@@ -1,6 +1,9 @@
-import {extendTheme} from '@chakra-ui/react'
-import { tabsTheme } from './Tabs.ts'
-import { buttonTheme } from './Button.ts'
+import {defineStyleConfig, extendTheme} from '@chakra-ui/react'
+import {tabsTheme} from './Tabs.ts'
+import {buttonTheme} from './Button.ts'
+import {accordionTheme} from './Accordion.ts'
+import {tagsTheme} from './Tags.ts'
+import {tableTheme} from './Table.ts'
 
 const sizes = {
     sizes: {
@@ -9,6 +12,10 @@ const sizes = {
 }
 
 const theme = extendTheme({
+    fonts: {
+        heading: `'Inter', sans-serif`,
+        body: `'Inter', sans-serif`,
+    },
     sizes,
     colors: {
         Marionum: {
@@ -25,7 +32,12 @@ const theme = extendTheme({
     },
     components: {
         Tabs: tabsTheme,
-        Button: buttonTheme
+        Button: buttonTheme,
+        Accordion: accordionTheme,
+        Tags: tagsTheme,
+        Badge: defineStyleConfig({baseStyle: {textTransform: 'inherit'}}),
+        Card: defineStyleConfig({baseStyle: {borderColor: 'Marionum.200'}}),
+        Table: tableTheme,
     }
 })
 

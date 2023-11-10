@@ -1,13 +1,12 @@
-import {Block} from "../../../layouts/Block.tsx";
+import {Block, Button, DropDownIcon, FileQuestionIcon} from "marionum-ui-kit";
 import {Flex, Spacer, Tab, TabIndicator, TabList, Tabs} from "@chakra-ui/react";
-import {Button} from "../../../components/Button.tsx";
 
 export type NavigationBlockProps = {
     tabIndex: 0,
     handleTabsChange?: (i: number) => void,
 };
 
-export const NavigationBlock = ({tabIndex, handleTabsChange}: NavigationBlockProps) => {
+export const NavigationExample = ({tabIndex, handleTabsChange}: NavigationBlockProps) => {
     return (
         <Block backgroundColor="Marionum.50">
             <Flex alignItems="center">
@@ -19,12 +18,12 @@ export const NavigationBlock = ({tabIndex, handleTabsChange}: NavigationBlockPro
                         <Tab>Aide</Tab>
                         <Tab>Statistiques</Tab>
                     </TabList>
-                    <TabIndicator />
+                    <TabIndicator/>
                 </Tabs>
                 <Spacer/>
                 <Flex alignItems="center" shrink={0} gap="16px">
-                    <Button variant="primary">Module</Button>
-                    <Button variant="secondary">Ouvrir un ticket</Button>
+                    <Button variant="tertiary" rightIcon={<DropDownIcon/>}>Outils tiers</Button>
+                    <Button variant="secondary" leftIcon={<FileQuestionIcon/>}>Ouvrir un ticket</Button>
                 </Flex>
             </Flex>
         </Block>

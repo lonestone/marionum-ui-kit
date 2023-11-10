@@ -1,0 +1,22 @@
+import AccordionBlockTxt from "./AccordionBlock.tsx?raw";
+
+import { Canvas, Controls, Source, Meta } from '@storybook/blocks';
+import * as Stories from './AccordionBlock.stories.tsx';
+
+<Meta title="MarioNUM/Examples/Accordion" />
+
+# Accordion
+
+Bloc de Accordion présent en haut de toutes les pages.
+
+## Rendu
+
+<Canvas of={Stories.Accordion} sourceState="shown" />
+
+<Controls of={Stories.Accordion} />
+
+## Référence d'implémentation
+
+Copier/Coller le code suivant dans votre projet pour servir de base d'implémentation :
+
+<Source code={AccordionBlockTxt} dark />
