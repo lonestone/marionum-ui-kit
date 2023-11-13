@@ -62,7 +62,7 @@ const DiffuseConfirmModal = ({onDiffuse, isOpen, onClose, ...props}: DiffuseConf
                 <ModalHeader>Diffuser un snapshot</ModalHeader>
                 <ModalCloseButton/>
                 <ModalBody>
-                    <Text fontSize="md">Souhaitez-vous diffuser ce snapshot au sein de votre établissement
+                    <Text as="span" fontSize="md">Souhaitez-vous diffuser ce snapshot au sein de votre établissement
                         ?</Text>
                     <Checkbox name="allowDiffusion" marginY="16px" isChecked={hasAllowedDiffusion}
                               onChange={setAllowsDiffusion.toggle}>
@@ -152,7 +152,7 @@ export const SnapshotPage: React.FC = () => {
                 </Flex>
 
                 {/* Description et tags */}
-                <Text fontSize="md" marginTop="24px" width="891px">Lorem ipsum dolor sit amet consectetur. Tellus donec
+                <Text as="div" fontSize="md" marginTop="24px" width="891px">Lorem ipsum dolor sit amet consectetur. Tellus donec
                     aliquet feugiat dictumst sed dapibus pretium euismod. In dignissim magna augue auctor non neque
                     ultrices. Massa diam dictum dui vestibulum velit non eu vitae nulla. Scelerisque amet turpis
                     malesuada dui id sed ornare ut. Risus vel dignissim pulvinar elit. Mi amet libero quam odio feugiat

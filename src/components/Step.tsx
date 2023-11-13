@@ -14,10 +14,10 @@ export interface StepProps extends BoxProps {
 export const Step = ({title, descriptionLeft, description, isActive, isActiveOrDone, ...props}: StepProps) => {
     return (
         <Box borderTop="4px" borderColor={isActiveOrDone ? "Marionum.700" : "gray.200"} paddingTop="8px" {...props}>
-            <Text fontSize="xs" fontWeight="600" color={isActive ? "Marionum.700" : "gray.500"}>{title}</Text>
-            <Text fontSize="2xs">
-                <Text fontSize="xs" lineHeight="4" fontWeight="semibold" as="span">{descriptionLeft}</Text>
-                <Text fontSize="xs" lineHeight="4" as="span">{description}</Text>
+            <Text as="div" fontSize="xs" fontWeight="600" color={isActive ? "Marionum.700" : "gray.500"}>{title}</Text>
+            <Text as="div" fontSize="2xs">
+                <Text as="div" fontSize="xs" lineHeight="4" fontWeight="semibold">{descriptionLeft}</Text>
+                <Text as="div" fontSize="xs" lineHeight="4">{description}</Text>
             </Text>
         </Box>
     );

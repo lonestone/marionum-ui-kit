@@ -122,7 +122,7 @@ const lien = defineStyle({
     },
     _focus: {
         ...tertiary._focus,
-        margin: '-2px',
+        margin: '-3px',
         bg: 'white',
         color: 'Marionum.700',
     },

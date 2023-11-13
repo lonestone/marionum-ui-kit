@@ -30,8 +30,8 @@ export const HeaderExample = ({notify, avatarURL, logoURL, homeHref, accountHref
                         <Image h="54px" w="93px" src={logoURL} backgroundColor="#293358" alt="MarioNUM"/>
                     </a>
                     <h1>
-                        <Text fontSize="xs" lineHeight="4" fontWeight="semibold" as="span">MarioNUM</Text>
-                        <Text fontSize="xs" lineHeight="4" as="span"> de Sorbonne Paris Nord</Text>
+                        <Text as="span" fontSize="xs" lineHeight="4" fontWeight="semibold">MarioNUM</Text>
+                        <Text as="span" fontSize="xs" lineHeight="4"> de Sorbonne Paris Nord</Text>
                     </h1>
                 </Flex>
                 <Spacer/>

@@ -6,7 +6,7 @@ export const WithCalendar = ({children, ...props}: PropsWithChildren<StackProps>
     return (
         <HStack gap="8px" {...props}>
             <CalendarIcon/>
-            <Text fontSize="xs" fontWeight="600" as="span">{children}</Text>
+            <Text as="span" fontSize="xs" fontWeight="600">{children}</Text>
         </HStack>
     );
 };

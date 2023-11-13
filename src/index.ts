@@ -5,4 +5,5 @@ import "@fontsource/inter/700.css";
 
 export * from './components'
 export * from './layouts'
+export * from './hooks'
 export {theme} from './theme'

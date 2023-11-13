@@ -21,11 +21,11 @@ export const Snapshot = ({title, date, description, tags, onClick, ...props}: Sn
                       {...props}>
             <Flex gap="8px">{tags && tags.map((t, i) => <Tag key={i} variant="outline"
                                                              colorScheme="Marionum">{t}</Tag>)}</Flex>
-            <Text fontSize="xs" fontWeight="600" color="Marionum.950" mt="8px">
+            <Text as="div" fontSize="xs" fontWeight="600" color="Marionum.950" mt="8px">
                 <Flex gap="8px"><CalendarIcon style={{display: "inline"}}/>{date}</Flex>
             </Text>
-            <Text fontSize="lg" fontWeight="600" color="Marionum.950" paddingTop="16px">{title}</Text>
-            <Text fontSize="sm" fontWeight="400" noOfLines={2}>{description}</Text>
+            <Text as="div" fontSize="lg" fontWeight="600" color="Marionum.950" paddingTop="16px">{title}</Text>
+            <Text as="div" fontSize="sm" fontWeight="400" noOfLines={2}>{description}</Text>
             <Flex w='100%' justifyContent='end' mt="16px">
                 <Button variant="icon" as="div"><FiEyeIcon/></Button>
             </Flex>

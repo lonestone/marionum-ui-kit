@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SnapshotTestPage } from './SnapshotTestPage.tsx';
 
 const meta = {
-  title: 'MarioNUM/Examples/Stories/SnapshotTestPage',
+  title: 'MarioNUM/Examples/Stories',
   component: SnapshotTestPage,
   parameters: {
     layout: 'fullscreen',
@@ -13,4 +13,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PageDeSnapshot: Story = {};
+export const ValiderLeTestSnapshot: Story = {};

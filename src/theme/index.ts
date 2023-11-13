@@ -38,6 +38,11 @@ const theme = extendTheme({
         Badge: defineStyleConfig({baseStyle: {textTransform: 'inherit'}}),
         Card: defineStyleConfig({baseStyle: {borderColor: 'Marionum.200'}}),
         Table: tableTheme,
+        Text: {
+            defaultProps: {
+                as: 'div'
+            }
+        }
     }
 })
 

@@ -15,8 +15,8 @@ export const Comment = ({text, author, date, ...props}: CommentProps) => {
         <VStack gap="8px" align="start" paddingLeft="32px" borderLeft="1px solid" borderLeftColor="gray.300" {...props}>
             <QuoteIcon boxSize="32px" color="Marionum.700"/>
             <Text fontSize="lg" fontWeight="600">«&nbsp;{text}&nbsp;»</Text>
-            <Text fontSize="md" fontWeight="600">{author}</Text>
-            <Text fontSize="xs" color="gray.500" marginTop="-8px">{date}</Text>
+            <Text as="span" fontSize="md" fontWeight="600">{author}</Text>
+            <Text as="span" fontSize="xs" color="gray.500" marginTop="-8px">{date}</Text>
         </VStack>
     );
 };
