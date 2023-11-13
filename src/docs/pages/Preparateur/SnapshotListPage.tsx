@@ -1,6 +1,6 @@
 import {AccordionSnapshotCategoryItem, Snapshot, TitleBlock, TitleSortAndSearch} from "marionum-ui-kit";
-import {NavigationExample} from "../examples/Navigation/NavigationExample.tsx";
-import {exampleHeaderProps, HeaderExample} from "../examples/Header/HeaderExample.tsx";
+import {NavigationExample} from "../../examples/Navigation/NavigationExample.tsx";
+import {exampleHeaderProps, HeaderExample} from "../../examples/Header/HeaderExample.tsx";
 import {Accordion, Flex} from "@chakra-ui/react";
 
 const snapshotList = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -9,7 +9,7 @@ export const SnapshotListPage: React.FC = () => {
     return (
         <>
             <HeaderExample {...exampleHeaderProps}/>
-            <NavigationExample tabIndex={0} handleTabsChange={() => {
+            <NavigationExample tabIndex={1} handleTabsChange={() => {
             }}/>
             <TitleBlock label="12 Snapshots">
                 <TitleSortAndSearch

@@ -1,4 +1,5 @@
 import {Meta, Source} from "@storybook/blocks";
+import exampleCodeTxt from "./uikitExampleCode.tsx?raw";
 
 <Meta title="Le UI-Kit"/>
 
@@ -8,21 +9,19 @@ Cette documentation explique comment utiliser le ui-kit développé pour MarionN
 
 Ce ui kit est basé sur le design system décrit sur figma: [https://www.figma.com/file/HBwXYcCGP16rjdNzF519pu/Marionum?node-id=1%3A2&mode=dev](https://www.figma.com/file/HBwXYcCGP16rjdNzF519pu/Marionum?node-id=1%3A2&mode=dev)
 
-> Nomenclature :
-> - *"ui kit"* désigne ce projet de ui kit pour MarioNUM.
-> - *"projet applicatif"* désigne le projet qui utilisera ce ui-kit, cela peut être MarioNUM ou tout autre projet.
+> Nomenclature :- *"ui kit"* désigne ce projet de ui kit pour MarioNUM.- *"projet applicatif"* désigne le projet qui utilisera ce ui-kit, cela peut être MarioNUM ou tout autre projet.
 
 ## Contenu du kit
 
 Ce UI-Kit contient 3 éléments :
 - Un ensemble de composants React en TypeScript
-    - Les **composants** sont des éléments de contenu prêt à l'emploi.  (ex: `import {Button} from 'marionum-ui-kit'`)
-    - Les **layouts**  sont des composants dédiés à la mise en page qui servent à faire le montage global. (ex: `import {Block} from 'marionum-ui-kit'`)
+  - Les **composants** sont des éléments de contenu prêt à l'emploi.  (ex: `import {Button} from 'marionum-ui-kit'`)
+  - Les **layouts**  sont des composants dédiés à la mise en page qui servent à faire le montage global. (ex: `import {Block} from 'marionum-ui-kit'`)
 - Un **thème Chakra-ui** (ex: `import {theme} from 'marionum-ui-kit'`)
 - La présente **documentation**
-    - Cette page de démarrage
-    - Une page de documentation pour chaque composant ou layout prêt à l'emploi du ui-kit
-    - Une page d'exemple pour chaque élément du Figma (page ou block) qui nécessite un montage plus complexe. Ces exemples sont conçus pour servir de base d'implémentation, ils pourront être copié/collé dans le projet applicatif puis modifiés selon les besoins.
+  - Cette page de démarrage
+  - Une page de documentation pour chaque composant ou layout prêt à l'emploi du ui-kit
+  - Une page d'exemple pour chaque élément du Figma (page ou block) qui nécessite un montage plus complexe. Ces exemples sont conçus pour servir de base d'implémentation, ils pourront être copié/collé dans le projet applicatif puis modifiés selon les besoins.
 
 
 ## Installation et configuration du projet
@@ -52,7 +51,8 @@ Dans le projet applicatif, importer "marionum-ui-kit" en ajoutant une référenc
 {
     "dependencies": {
         // ...
-        "marionum-ui-kit": "file:../marioNUM-ui-kit/marionum-ui-kit-0.0.3.tgz"
+        "marionum-ui-kit": "file:../marionum-ui-kit-0.0.3.tgz"
+        // Si intégré au dossier projet: "marionum-ui-kit": "file:./marionum-ui-kit-0.0.3.tgz"
     }
 }
 `}/>
@@ -92,46 +92,13 @@ Référez-vous au menu de navigation sur la gauche.
 
 Voici un exemple commenté d'utilisation du Header:
 
-<Source language="tsx" code={`
-// MyApp/components/HeaderBlock.tsx
+<Source language="tsx" code={exampleCodeTxt}/>
 
-// Les composants react de chakra-ui peuvent être utilisés librement
-import {Avatar, Flex, Image, Spacer, Text} from "@chakra-ui/react";
+## Utilisation des icones
 
-// Import des composants et layouts depuis "marionum-ui-kit"
-import {Block, NotificationIcon} from "marionum-ui-kit";
+Ce ui-kit s'appuie essentiellement sur react-icons pour intégrer les icones et pictogrammes.
 
-// Typage des props du composants
-export type HeaderBlockProps = {
-    notify?: boolean,
-    logoURL: string,
-    avatarURL: string,
-    accountHref: string,
-    homeHref: string,
-    handleClickNotif: React.MouseEventHandler<HTMLButtonElement>,
-};
+En dehors de ceux utilisés dans les exemples et composants,
+il est possible d'utiliser l'ensemble des icones disponibles sur [https://react-icons.github.io/react-icons](https://react-icons.github.io/react-icons).
 
-// Reférence d'implémentation du composant, à modifier pour ajouter la récupération de données, les interactions, etc.
-export const HeaderBlock = ({notify, avatarURL, logoURL, homeHref, accountHref, handleClickNotif}: HeaderBlockProps) => {
-    return (
-        <Block backgroundColor="Marionum.50" paddingY="30px">
-            <Flex alignItems="center">
-                <Flex alignItems="center" shrink={0} gap="24px">
-                    <a href={homeHref}>
-                        <Image h="54px" w="93px" src={logoURL} backgroundColor="#293358" alt="MarioNUM"/>
-                    </a>
-                    <h1>
-                        <Text fontSize="xs" lineHeight="4" fontWeight="semibold" as="span">MarioNUM</Text>
-                        <Text fontSize="xs" lineHeight="4" as="span"> de Sorbonne Paris Nord</Text>
-                    </h1>
-                </Flex>
-                <Spacer/>
-                <Flex alignItems="center" shrink={0} gap="16px">
-                    <button onClick={handleClickNotif}><NotificationIcon boxSize="24px" notify={notify}/></button>
-                    <a href={accountHref}><Avatar src={avatarURL}/></a>
-                </Flex>
-            </Flex>
-        </Block>
-    );
-}
-`}/>
+Ceux de Chakra-ui peuvent également être utilisés : [https://chakra-ui.com/docs/components/icon/usage#all-icons](https://chakra-ui.com/docs/components/icon/usage#all-icons)

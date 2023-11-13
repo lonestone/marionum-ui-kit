@@ -2,7 +2,7 @@ import {Block, Button, DropDownIcon, FileQuestionIcon} from "marionum-ui-kit";
 import {Flex, Spacer, Tab, TabIndicator, TabList, Tabs} from "@chakra-ui/react";
 
 export type NavigationBlockProps = {
-    tabIndex: 0,
+    tabIndex: number,
     handleTabsChange?: (i: number) => void,
 };
 

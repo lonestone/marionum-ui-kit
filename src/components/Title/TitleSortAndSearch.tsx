@@ -7,7 +7,7 @@ import {
     Menu,
     MenuButton,
     MenuItem,
-    MenuList,
+    MenuList, Portal,
     Spacer
 } from "@chakra-ui/react";
 import {Button} from "../Button.tsx";
@@ -26,18 +26,18 @@ export const TitleSortAndSearch = ({placeholderText, onSearch, onSort}: TitleSor
     return (
         <>
             <Box w="1px" h="1.5rem" marginLeft="16px" bgColor="gray.300"/>
-            <Box position="relative">
-                <Menu>
-                    <MenuButton as={Button} variant="lien" color="gray.700" paddingX="16px">
-                        Trier
-                    </MenuButton>
-                    <MenuList mt={10}>
+            <Menu>
+                <MenuButton as={Button} variant="lien" color="gray.700" paddingX="16px">
+                    Trier
+                </MenuButton>
+                <Portal>
+                    <MenuList>
                         <MenuItem onClick={() => onSort('Date')}>Date</MenuItem>
                         <MenuItem onClick={() => onSort('Application')}>Application</MenuItem>
                         <MenuItem onClick={() => onSort('Package')}>Package</MenuItem>
                     </MenuList>
-                </Menu>
-            </Box>
+                </Portal>
+            </Menu>
             <Spacer/>
             <InputGroup width="557px" size='md'>
                 <Input

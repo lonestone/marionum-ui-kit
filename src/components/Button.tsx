@@ -1,4 +1,5 @@
-import {Button as ChakraButton, ButtonProps as ChakraButtonProps} from '@chakra-ui/react'
+import {Button as ChakraButton, ButtonProps as ChakraButtonProps, forwardRef} from '@chakra-ui/react'
+
 import {ReactElement} from "react";
 
 export interface ButtonProps extends ChakraButtonProps {
@@ -32,15 +33,18 @@ const sizeByVariant = {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({variant = 'primary', disabled = false, children, ...props}: ButtonProps) => {
-    return (
-        <ChakraButton
-            variant={variant}
-            size={sizeByVariant[variant]}
-            isDisabled={disabled}
-            {...props}
-        >
-            {children}
-        </ChakraButton>
-    );
-};
+export const Button = forwardRef<ButtonProps, typeof ChakraButton>(
+    ({variant = 'primary', disabled = false, children, ...props}: ButtonProps, ref) => {
+        return (
+            <ChakraButton
+                variant={variant}
+                size={sizeByVariant[variant]}
+                isDisabled={disabled}
+                {...props}
+                ref={ref}
+            >
+                {children}
+            </ChakraButton>
+        );
+    }
+);

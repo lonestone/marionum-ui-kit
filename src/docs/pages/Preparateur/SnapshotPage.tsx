@@ -1,12 +1,24 @@
-import {Block, Button, ShareIcon, SuspensionPointsIcon, WithCalendar} from "marionum-ui-kit";
-import {NavigationExample} from "../examples/Navigation/NavigationExample.tsx";
-import {exampleHeaderProps, HeaderExample} from "../examples/Header/HeaderExample.tsx";
+import {Block, Button, Comment, Packet, WithCalendar} from "marionum-ui-kit";
+import {NavigationExample} from "../../examples/Navigation/NavigationExample.tsx";
+import {exampleHeaderProps, HeaderExample} from "../../examples/Header/HeaderExample.tsx";
 import {
     Badge,
     Box,
+    Checkbox,
     Flex,
     Heading,
     HStack,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuList,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
     Spacer,
     Table,
     TableContainer,
@@ -16,12 +28,63 @@ import {
     Th,
     Thead,
     Tr,
+    useBoolean,
+    useDisclosure,
+    UseModalProps,
     VStack
 } from "@chakra-ui/react";
-import {ArrowBackIcon} from '@chakra-ui/icons'
-import {Packet} from "../../components/Packet/Packet.tsx";
-import {Comment} from "../../components/Comment/Comment.tsx";
+import {ArrowBackIcon, LinkIcon} from '@chakra-ui/icons'
+import {IoArchiveOutline, IoBugOutline, IoDuplicateOutline} from 'react-icons/io5'
+import {MdDeleteOutline} from 'react-icons/md'
+import {BiEditAlt} from 'react-icons/bi'
+import {PiDotsThreeBold} from 'react-icons/pi'
+import {FiShare2} from 'react-icons/fi'
 
+const noop = () => {
+};
+
+interface DiffuseConfirmModalProps extends UseModalProps {
+    onDiffuse: (allowsMarionumSharing: boolean) => void
+}
+
+const DiffuseConfirmModal = ({onDiffuse, isOpen, onClose, ...props}: DiffuseConfirmModalProps) => {
+
+    const [hasAllowedDiffusion, setAllowsDiffusion] = useBoolean(false);
+    const handleDiffuse = () => {
+        onDiffuse(hasAllowedDiffusion);
+        onClose();
+    }
+
+    return (
+        <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl" {...props}>
+            <ModalOverlay/>
+            <ModalContent>
+                <ModalHeader>Diffuser un snapshot</ModalHeader>
+                <ModalCloseButton/>
+                <ModalBody>
+                    <Text fontSize="md">Souhaitez-vous diffuser ce snapshot au sein de votre établissement
+                        ?</Text>
+                    <Checkbox name="allowDiffusion" marginY="16px" isChecked={hasAllowedDiffusion}
+                              onChange={setAllowsDiffusion.toggle}>
+                        <Text as="span" fontSize="sm">Je permet à Marionum de diffuser ce snapshot à d’autres
+                            établissement</Text>
+                    </Checkbox>
+                </ModalBody>
+
+                <ModalFooter>
+                    <Button onClick={noop} variant="secondary" leftIcon={<LinkIcon/>} mr={3} fontSize="md">
+                        Copier le lien
+                    </Button>
+                    <Spacer/>
+                    <Button onClick={onClose} variant="tertiary" mr={3} fontSize="md">
+                        Annuler
+                    </Button>
+                    <Button onClick={handleDiffuse} variant='primary'>Diffuser</Button>
+                </ModalFooter>
+            </ModalContent>
+        </Modal>
+    )
+}
 
 export const SnapshotPage: React.FC = () => {
     const packetList = [{
@@ -44,16 +107,20 @@ export const SnapshotPage: React.FC = () => {
         version: "18.2.0"
     }]
 
+    const {isOpen: isDiffuseModalOpen, onOpen: onDiffuseModalOpen, onClose: onDiffuseModalClose} = useDisclosure()
+
     return (
         <>
             <HeaderExample {...exampleHeaderProps}/>
-            <NavigationExample tabIndex={0} handleTabsChange={() => {
-            }}/>
+            <NavigationExample tabIndex={1} handleTabsChange={noop}/>
+            {/* Block pour background et largeur du contenu de la page */}
             <Block backgroundColor="white" paddingY="24px" hasBottomBorder>
+
+                {/* Titre, lien de retour et actions */}
                 <Flex alignItems="center" gap="16px">
                     <VStack align="start">
                         <Button variant="lien" leftIcon={<ArrowBackIcon boxSize="4"/>}
-                                pl={0} size="xs" marginTop="-2px">Retourner à la liste</Button>
+                                pl={0} size="xs">Retourner à la liste</Button>
                         <HStack align="center" gap="16px" flexWrap="wrap">
                             <Heading fontSize="2xl" whiteSpace="nowrap">Nom du snapshot</Heading>
                             <Box w="1px" h="1rem" bgColor="gray.300"/>
@@ -65,17 +132,31 @@ export const SnapshotPage: React.FC = () => {
                         </HStack>
                     </VStack>
                     <Spacer/>
-                    <Button variant="tertiary" size="lg" leftIcon={<ShareIcon/>} flexShrink={0}>Dupliquer ce
+                    <Button variant="tertiary" size="lg" leftIcon={<IoDuplicateOutline/>} flexShrink={0}>Dupliquer ce
                         snapshot</Button>
-                    <Button variant="primary" size="lg" leftIcon={<ShareIcon/>}>Diffuser</Button>
-                    <Button variant="icon" size="lg"><SuspensionPointsIcon/></Button>
+                    <Button onClick={onDiffuseModalOpen} variant="primary" size="lg"
+                            leftIcon={<FiShare2/>}>Diffuser</Button>
+                    <DiffuseConfirmModal isOpen={isDiffuseModalOpen} onClose={onDiffuseModalClose}
+                                         onDiffuse={noop}/>
+                    <Menu>
+                        <MenuButton as={Button} aria-label='Options' variant="icon" size="lg">
+                            <PiDotsThreeBold size="1.5rem" style={{margin: "0 auto"}}/>
+                        </MenuButton>
+                        <MenuList>
+                            <MenuItem icon={<IoBugOutline size="1.5rem"/>}>Tester</MenuItem>
+                            <MenuItem icon={<IoArchiveOutline size="1.5rem"/>}>Archiver</MenuItem>
+                            <MenuItem icon={<BiEditAlt size="1.5rem"/>}>Modifier</MenuItem>
+                            <MenuItem icon={<MdDeleteOutline size="1.5rem"/>}>Supprimer</MenuItem>
+                        </MenuList>
+                    </Menu>
                 </Flex>
+
+                {/* Description et tags */}
                 <Text fontSize="md" marginTop="24px" width="891px">Lorem ipsum dolor sit amet consectetur. Tellus donec
-                    aliquet
-                    feugiat dictumst sed
-                    dapibus pretium euismod. In dignissim magna augue auctor non neque ultrices. Massa diam dictum dui
-                    vestibulum velit non eu vitae nulla. Scelerisque amet turpis malesuada dui id sed ornare ut. Risus
-                    vel dignissim pulvinar elit. Mi amet libero quam odio feugiat dictum urna.</Text>
+                    aliquet feugiat dictumst sed dapibus pretium euismod. In dignissim magna augue auctor non neque
+                    ultrices. Massa diam dictum dui vestibulum velit non eu vitae nulla. Scelerisque amet turpis
+                    malesuada dui id sed ornare ut. Risus vel dignissim pulvinar elit. Mi amet libero quam odio feugiat
+                    dictum urna.</Text>
                 <Flex gap="8px" marginTop="13px">
                     <Badge variant='outline'>BDD</Badge>
                     <Badge variant='outline'>PHP</Badge>
@@ -83,6 +164,8 @@ export const SnapshotPage: React.FC = () => {
                     <Badge variant='outline'>PHP</Badge>
                     <Badge variant='outline'>C#</Badge>
                 </Flex>
+
+                {/* Applications et paquets */}
                 <HStack marginTop="28px">
                     <Heading fontSize="lg" as="h3">Principales applications et paquets installés</Heading>
                     <Box w="1px" h="1.2rem" marginLeft="4px" bgColor="gray.300"/>
@@ -97,11 +180,13 @@ export const SnapshotPage: React.FC = () => {
                     ))}
                 </Flex>
 
+                {/* Diffusé à */}
                 <HStack marginTop="60px" gap="1rem">
                     <Heading fontSize="lg" as="h3">Diffusé à</Heading>
                     <Badge variant="outline" fontSize="xs" p="7px 8px">Tout Marionum</Badge>
                 </HStack>
 
+                {/* Commentaires */}
                 <Heading marginTop="40px" fontSize="lg" as="h3">Commentaires</Heading>
                 <VStack marginTop="16px" align="start">
                     <Comment
@@ -116,6 +201,7 @@ export const SnapshotPage: React.FC = () => {
                         date="12/2023"/>
                 </VStack>
 
+                {/* Historique des modifications */}
                 <Heading marginTop="40px" fontSize="lg" as="h3">Historique des modifications</Heading>
                 <TableContainer width="600px" border="1px solid" borderColor="Marionum.200" borderRadius="6px"
                                 marginTop="27px">
@@ -147,9 +233,6 @@ export const SnapshotPage: React.FC = () => {
                     </Table>
                 </TableContainer>
             </Block>
-            <div>
-                Ici le snapshot
-            </div>
         </>
     );
 };

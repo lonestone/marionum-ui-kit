@@ -16,6 +16,8 @@ export {StepProgress} from "./StepProgress.tsx";
 export {AccordionSnapshotCategoryItem} from "./AccordionSnapshotCategoryItem.tsx";
 export {Snapshot} from "./Snapshot/Snapshot.tsx";
 export {WithCalendar} from "./WithCalendar.tsx";
+export {Packet} from "./Packet/Packet.tsx";
+export {Comment} from "./Comment/Comment.tsx";
 
 export type {ButtonProps} from './Button'
 export type {TitleBlockProps} from './Title/TitleBlock'

@@ -78,7 +78,7 @@ const tertiary = defineStyle({
         }
     },
     _focus: {
-        margin: '-1.5px',
+        margin: '-2px',
         outline: '3px solid',
         outlineColor: 'Marionum.700',
         outlineOffset: "0px",
@@ -122,7 +122,7 @@ const lien = defineStyle({
     },
     _focus: {
         ...tertiary._focus,
-        margin: '-3px',
+        margin: '-2px',
         bg: 'white',
         color: 'Marionum.700',
     },
