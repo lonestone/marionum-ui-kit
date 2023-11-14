@@ -100,8 +100,7 @@ const icon = defineStyle({
     ...secondary,
     bg: 'Marionum.200',
     color: 'Marionum.700',
-    width: "48px",
-    height: "48px",
+    aspectRatio: "1 / 1",
     padding: 0
 })
 
