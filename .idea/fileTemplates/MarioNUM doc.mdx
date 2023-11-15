@@ -1,0 +1,20 @@
+import ${NAME}Txt from "./${NAME}.tsx?raw";
+
+import { Canvas, Source, Meta } from '@storybook/blocks';
+import * as Stories from './${NAME}.stories.tsx';
+
+<Meta title="MarioNUM/Examples/${NAME}" />
+
+# New de Snapshots
+
+Référence d'implémentation pour "${NAME}"
+
+## Rendu
+
+<Canvas of={Stories.${NAME}Story} sourceState="none" />
+
+## Référence d'implémentation
+
+Copier/Coller le code suivant dans votre projet pour servir de base d'implémentation :
+
+<Source code={${NAME}Txt} dark />
