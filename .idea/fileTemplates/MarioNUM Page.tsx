@@ -10,7 +10,7 @@ export const ${NAME}: React.FC = () => {
             }}/>
             <TitleBlock label="${NAME}">
             </TitleBlock>
-            <Block backgroundColor="Marionum.50" paddingY="44px" hasBottomBorder>
+            <Block backgroundColor="Marionum.50" paddingY="44px" isContent>
             </Block>
         </>
     );
