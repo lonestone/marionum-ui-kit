@@ -6,7 +6,7 @@ export interface ButtonProps extends ChakraButtonProps {
     /**
      * Apparence du bouton.
      */
-    variant?: 'primary' | 'secondary' | 'tertiary' | 'icon' | 'lien' | 'warning';
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'icon' | 'lien' | 'ghost';
 
     /**
      * Icone à affiche à gauche du texte.
@@ -28,6 +28,7 @@ const sizeByVariant = {
     icon: 'lg',
     lien: 'sm',
     warning: 'lg',
+    ghost: 'md',
 }
 
 /**

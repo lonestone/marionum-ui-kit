@@ -10,7 +10,7 @@ import {
     MenuList, Portal,
     Spacer
 } from "@chakra-ui/react";
-import {Button} from "../Button.tsx";
+import {Button} from "../Button/Button.tsx";
 
 export type TitleSortAndSearchProps = {
     placeholderText: string,

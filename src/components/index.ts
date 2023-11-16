@@ -1,14 +1,15 @@
-export {CrossIcon} from './CrossIcon'
-export {DropDownIcon} from './DropDownIcon'
-export {DropRightIcon} from './DropRightIcon'
-export {FileQuestionIcon} from './FileQuestionIcon'
-export {NotificationIcon} from './NotificationIcon'
-export {SuspensionPointsIcon} from './SuspensionPointsIcon'
-export {CalendarIcon} from './CalendarIcon'
-export {FiEyeIcon} from './FiEyeIcon'
-export {ShareIcon} from './ShareIcon'
-export {QuoteIcon} from './QuoteIcon'
-export {Button} from './Button'
+export {CrossIcon} from './Icons/CrossIcon.tsx'
+export {DropDownIcon} from './Icons/DropDownIcon.tsx'
+export {DropRightIcon} from './Icons/DropRightIcon.tsx'
+export {FileQuestionIcon} from './Icons/FileQuestionIcon.tsx'
+export {NotificationIcon} from './Icons/NotificationIcon.tsx'
+export {SuspensionPointsIcon} from './Icons/SuspensionPointsIcon.tsx'
+export {CalendarIcon} from './Icons/CalendarIcon.tsx'
+export {FiEyeIcon} from './Icons/FiEyeIcon.tsx'
+export {ShareIcon} from './Icons/ShareIcon.tsx'
+export {QuoteIcon} from './Icons/QuoteIcon.tsx'
+export {AlertTP} from './AlertTP'
+export {Button} from './Button/Button.tsx'
 export {TitleBlock} from './Title/TitleBlock'
 export {TitleSortAndSearch} from "./Title/TitleSortAndSearch.tsx";
 export {Step} from "./Step.tsx";
@@ -22,7 +23,7 @@ export {Label} from "./Label.tsx";
 export {ButtonCheckbox} from "./ButtonCheckbox.tsx";
 export {LinkCard} from "./LinkCard/LinkCard.tsx";
 
-export type {ButtonProps} from './Button'
+export type {ButtonProps} from './Button/Button.tsx'
 export type {TitleBlockProps} from './Title/TitleBlock'
 export type {TitleSortAndSearchProps} from "./Title/TitleSortAndSearch.tsx";
 export type {StepProps} from "./Step.tsx";

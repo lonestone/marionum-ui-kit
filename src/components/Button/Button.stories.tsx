@@ -2,9 +2,9 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import {Button} from './Button.tsx';
 import {Flex} from "@chakra-ui/react";
-import {CrossIcon} from "./CrossIcon.tsx";
-import {DropDownIcon} from "./DropDownIcon.tsx";
-import {DropRightIcon} from "./DropRightIcon.tsx";
+import {CrossIcon} from "../Icons/CrossIcon.tsx";
+import {DropDownIcon} from "../Icons/DropDownIcon.tsx";
+import {DropRightIcon} from "../Icons/DropRightIcon.tsx";
 import {FileQuestionIcon, SuspensionPointsIcon} from "marionum-ui-kit";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

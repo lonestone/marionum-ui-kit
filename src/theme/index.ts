@@ -4,6 +4,7 @@ import {buttonTheme} from './Button.ts'
 import {accordionTheme} from './Accordion.ts'
 import {tagsTheme} from './Tags.ts'
 import {tableTheme} from './Table.ts'
+import {alertTheme} from "./Alert.ts";
 
 const sizes = {
     sizes: {
@@ -31,6 +32,7 @@ const theme = extendTheme({
         }
     },
     components: {
+        Alert: alertTheme,
         Tabs: tabsTheme,
         Button: buttonTheme,
         Accordion: accordionTheme,

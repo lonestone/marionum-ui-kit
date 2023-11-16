@@ -33,12 +33,12 @@ import {
     UseModalProps,
     VStack
 } from "@chakra-ui/react";
-import {ArrowBackIcon, LinkIcon} from '@chakra-ui/icons'
+import {ArrowBackIcon} from '@chakra-ui/icons'
 import {IoArchiveOutline, IoBugOutline, IoDuplicateOutline} from 'react-icons/io5'
 import {MdDeleteOutline} from 'react-icons/md'
 import {BiEditAlt} from 'react-icons/bi'
 import {PiDotsThreeBold} from 'react-icons/pi'
-import {FiShare2} from 'react-icons/fi'
+import {FiCopy, FiShare2} from 'react-icons/fi'
 
 const noop = () => {
 };
@@ -92,7 +92,7 @@ const DiffuseConfirmModal = ({onDiffuse, isOpen, onClose, ...props}: DiffuseConf
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button onClick={noop} variant="secondary" leftIcon={<LinkIcon/>} mr={3} fontSize="md">
+                    <Button onClick={noop} variant="secondary" leftIcon={<FiCopy />} mr={3} fontSize="md">
                         Copier le lien
                     </Button>
                     <Spacer/>

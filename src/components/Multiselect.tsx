@@ -14,7 +14,6 @@ export interface MultiselectProps {
     children: (inputProps: UseComboboxGetInputPropsReturnValue) => ReactNode
 }
 
-
 /**
  * A helper to implement a Multiselect component. Rely on downshift for the state management and accessibility.
  * @param items The complete list of items available.
