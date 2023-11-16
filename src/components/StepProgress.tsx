@@ -21,7 +21,7 @@ export const StepProgress = ({steps, index, ...props}: StepProgressProps) => {
     return <Flex gap="16px" {...props}>
         {steps.map(({title, descriptionLeft, description}, i) => (
             <Step key={i} title={title} descriptionLeft={descriptionLeft} description={description} isActive={index === i}
-                  isActiveOrDone={index >= i} flex="1 1 0px"/>
+                  isActiveOrDone={index == i} flex="1 1 0px"/>
         ))}
     </Flex>
 }

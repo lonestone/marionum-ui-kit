@@ -18,7 +18,7 @@ export const SnapshotTestPage: React.FC = () => {
             <HeaderExample {...exampleHeaderProps}/>
             <NavigationExample tabIndex={1} handleTabsChange={noop}/>
             {/* Block pour background et largeur du contenu de la page */}
-            <Block backgroundColor="white" paddingY="24px" hasBottomBorder>
+            <Block backgroundColor="white" paddingY="24px">
 
                 {/* actions */}
                 <Flex alignItems="center" gap="16px">

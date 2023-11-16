@@ -13,7 +13,8 @@ import {
     Modal,
     ModalBody,
     ModalCloseButton,
-    ModalContent, ModalFooter,
+    ModalContent,
+    ModalFooter,
     ModalHeader,
     ModalOverlay,
     Select,
@@ -94,14 +95,14 @@ export const SnapshotNewPage: React.FC = () => {
 
             {/* Block pour background et largeur du contenu de la page */}
             <VStack>
-                <Block backgroundColor="Marionum.50" paddingY="44px" hasBottomBorder>
+                <Block backgroundColor="Marionum.50" paddingY="44px">
                     <Heading fontSize="2xl" whiteSpace="nowrap">Description du snapshot</Heading>
                     <Label htmlFor="snapshotName" label="Nom du snapshot">
-                        <Input name="snapshotName" placeholder='' variant="outline" size="md" bgColor="white"
+                        <Input id="snapshotName" placeholder='' variant="outline" size="md" bgColor="white"
                                width="486px"/>
                     </Label>
                     <Label htmlFor="snapshotDescription" label="Description">
-                        <Textarea name="snapshotDescription" placeholder='' variant="outline" size="md"
+                        <Textarea id="snapshotDescription" placeholder='' variant="outline" size="md"
                                   bgColor="white"/>
                     </Label>
                     <Label htmlFor="tags" label="Tags">
@@ -120,7 +121,7 @@ export const SnapshotNewPage: React.FC = () => {
                             {selectedTags.map(t => <Tag key={t} size="sm" variant="subtle" bgColor="Marionum.200">
                                 <TagLabel>{t}</TagLabel>
                                 <TagCloseButton onClick={() => handleRemoveSelectedTag(t)}/>
-                                <input type="hidden" name="tags" value={t}/>
+                                <input type="hidden" id="tags" value={t}/>
                             </Tag>)}
                         </HStack>
                     </Label>
@@ -179,7 +180,7 @@ export const SnapshotNewPage: React.FC = () => {
 
                     {/* Diffusé à */}
                     <Label htmlFor="sharedWith" label="Diffusé à">
-                        <Select name="sharedWith" placeholder="Sélectionner une liste"
+                        <Select id="sharedWith" placeholder="Sélectionner une liste"
                                 variant="outline" fontSize="md" bgColor="white" width="250px">
                             <option value='option1'>Établissement</option>
                             <option value='option2'>Tout MarioNUM</option>
@@ -187,7 +188,7 @@ export const SnapshotNewPage: React.FC = () => {
                     </Label>
                     <Spacer/>
                 </Block>
-                <Block backgroundColor="white" paddingY="16px">
+                <Block backgroundColor="white" paddingY="16px" dockBottom>
                     <HStack>
                         <Button size="lg" variant="tertiary" color="gray.950">Annuler</Button>
                         <Spacer/>

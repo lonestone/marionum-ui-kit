@@ -23,7 +23,7 @@ export const exampleHeaderProps: HeaderExampleProps = {
 
 export const HeaderExample = ({notify, avatarURL, logoURL, homeHref, accountHref, handleClickNotif}: HeaderExampleProps) => {
     return (
-        <Block backgroundColor="Marionum.50" paddingY="30px" hasBottomBorder>
+        <Block backgroundColor="Marionum.50" paddingY="30px">
             <Flex alignItems="center">
                 <Flex alignItems="center" shrink={0} gap="24px">
                     <a href={homeHref}>

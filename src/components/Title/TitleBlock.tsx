@@ -7,13 +7,11 @@ export interface TitleBlockProps {
      * Text to be displayed as title
      */
     label: string
-
-    hideBottomBorder?: boolean
 }
 
-export const TitleBlock = ({label, hideBottomBorder, children}: PropsWithChildren<TitleBlockProps>) => {
+export const TitleBlock = ({label, children}: PropsWithChildren<TitleBlockProps>) => {
     return (
-        <Block backgroundColor="white" paddingY="24px" hasBottomBorder={!hideBottomBorder}>
+        <Block backgroundColor="white" paddingY="24px">
             <Flex alignItems="center">
                 <Heading size="lg">{label}</Heading>
                 {children}

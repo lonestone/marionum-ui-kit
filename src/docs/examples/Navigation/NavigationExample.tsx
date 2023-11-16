@@ -8,7 +8,7 @@ export type NavigationBlockProps = {
 
 export const NavigationExample = ({tabIndex, handleTabsChange}: NavigationBlockProps) => {
     return (
-        <Block backgroundColor="Marionum.50">
+        <Block backgroundColor="Marionum.50" hasTopBorder>
             <Flex alignItems="center">
                 <Tabs variant="marionumNavigation" index={tabIndex} onChange={handleTabsChange}>
                     <TabList>

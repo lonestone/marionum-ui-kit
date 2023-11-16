@@ -3,18 +3,13 @@ import {Block, Button, TitleBlock, WithCalendar} from "marionum-ui-kit";
 import {NavigationExample} from "../../examples/Navigation/NavigationExample.tsx";
 import {exampleHeaderProps, HeaderExample} from "../../examples/Header/HeaderExample.tsx";
 import {
+    Box,
     Flex,
     HStack,
     Menu,
     MenuButton,
     MenuItem,
     MenuList,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalHeader,
-    ModalOverlay,
     Spacer,
     Tab,
     TabIndicator,
@@ -32,7 +27,6 @@ import {
     Thead,
     Tr,
     useDisclosure,
-    UseModalProps, useToast,
     VStack
 } from "@chakra-ui/react";
 import {RiCheckboxCircleFill} from "react-icons/ri";
@@ -43,8 +37,8 @@ import {PiDotsThreeBold} from "react-icons/pi";
 import {BiEditAlt} from "react-icons/bi";
 import {MdDeleteOutline} from "react-icons/md";
 import {HiOutlineDocumentDuplicate} from "react-icons/hi2";
-import {FiCopy} from "react-icons/fi";
 import {HiOutlineDuplicate} from "react-icons/hi";
+import {CopyLinksModalExample} from "../../examples/CopyLinksModal/CopyLinksModalExample.tsx";
 
 
 export interface TP {
@@ -59,55 +53,6 @@ export interface TP {
 export interface TPTableProps {
     tpList: TP[],
     sort: "asc" | "desc" | undefined
-}
-
-interface CopyLinksModalProps extends UseModalProps {
-    studentLink: string
-    teacherLink: string
-}
-
-const CopyLinksModal = ({isOpen, onClose, studentLink, teacherLink, ...props}: CopyLinksModalProps) => {
-    const toast = useToast()
-
-    function copyToClipboard(s: string) {
-        navigator.clipboard.writeText(s);
-        toast({
-            title: 'Copié dans le presse-papier',
-            status: 'success',
-            duration: 4000,
-            isClosable: true,
-        })
-    }
-
-    return (
-        <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl" {...props}>
-            <ModalOverlay/>
-            <ModalContent>
-                <ModalHeader>Copier le lien de la séance</ModalHeader>
-                <ModalCloseButton/>
-                <ModalBody paddingY="16px">
-                    <VStack borderRadius="8px" gap="8px" p="16px" border="1px solid" borderColor="Marionum.200"
-                            bgColor="white" position="relative" alignItems="start">
-                        <Text as="span" fontSize="lg" fontWeight="semibold">Lien d'accès étudiant</Text>
-                        <Text as="a" href={studentLink} fontSize="sm" color="Marionum.700">{studentLink}</Text>
-                        <Button onClick={() => copyToClipboard(studentLink)} variant="icon" position="absolute"
-                                bottom="4px" right="4px" size="xs" w="24px" h="36px" p="0px">
-                            <FiCopy size="18px"/>
-                        </Button>
-                    </VStack>
-                    <VStack borderRadius="8px" gap="8px" p="16px" border="1px solid" borderColor="Marionum.200"
-                            bgColor="white" position="relative" marginTop="16px" alignItems="start">
-                        <Text as="span" fontSize="lg" fontWeight="semibold">Lien d'accès enseigant</Text>
-                        <Text as="a" href={teacherLink} fontSize="sm" color="Marionum.700">{teacherLink}</Text>
-                        <Button onClick={() => copyToClipboard(teacherLink)} variant="icon" position="absolute"
-                                bottom="4px" right="4px" size="xs" w="24px" h="36px" p="0px">
-                            <FiCopy size="18px"/>
-                        </Button>
-                    </VStack>
-                </ModalBody>
-            </ModalContent>
-        </Modal>
-    )
 }
 
 export const TPTable = ({tpList, sort}: TPTableProps) => {
@@ -153,7 +98,7 @@ export const TPTable = ({tpList, sort}: TPTableProps) => {
                         <Tr key={tp.id}>
                             <Td>{tp.date}</Td>
                             <Td>{tp.name}</Td>
-                            <Td><Tag variant='solid' colorScheme='teal'>{tp.count}</Tag></Td>
+                            <Td><Tag variant='solid' bgColor="#2BAAAF">{tp.count}</Tag></Td>
                             <Td>
                                 <HStack gap="16px" justifyContent="end" paddingRight="16px">
                                     <Button onClick={() => handleOpenTp(tp)} variant="primary" size="sm"
@@ -175,7 +120,7 @@ export const TPTable = ({tpList, sort}: TPTableProps) => {
                 </Tbody>
             </Table>
         </TableContainer>
-        <CopyLinksModal isOpen={isOpen} onClose={onClose}
+        <CopyLinksModalExample isOpen={isOpen} onClose={onClose}
                         studentLink={selectedTP?.studentLink ?? ""} teacherLink={selectedTP?.teacherLink ?? ""}/>
     </>)
 }
@@ -198,7 +143,7 @@ export const TPListPage: React.FC = () => {
     }]
 
     return (
-        <>
+        <VStack h="100%" gap="0px">
             <HeaderExample {...exampleHeaderProps}/>
             <NavigationExample tabIndex={0} handleTabsChange={() => {
             }}/>
@@ -212,37 +157,39 @@ export const TPListPage: React.FC = () => {
                     </Button>
                 </Flex>
             </Block>
-            <TitleBlock label="Travaux Pratiques" hideBottomBorder>
+            <TitleBlock label="Travaux Pratiques">
                 <Spacer/>
                 <Button variant="primary" size="lg" leftIcon={<AddIcon/>}>Organiser un TP</Button>
             </TitleBlock>
-            {/**
-             * Utiliser IsLazy pour charger à la demande les contenus des panels (https://chakra-ui.com/docs/components/tabs/usage#lazily-mounting-tab-panels)
-             * Si tout est préchargé, isLazy peut être supprimé.
-             **/}
-            <Tabs variant="marionumNavigation" isLazy>
-                <Block>
-                    <TabList>
-                        <Tab>Prochains TP</Tab>
-                        <Tab>Anciens TP</Tab>
-                        <Tab>TP Annulés</Tab>
-                    </TabList>
-                    <TabIndicator/>
-                </Block>
-                <Block backgroundColor="Marionum.50">
-                    <TabPanels>
-                        <TabPanel>
-                            <TPTable sort="desc" tpList={tpList}/>
-                        </TabPanel>
-                        <TabPanel>
-                            <p>two!</p>
-                        </TabPanel>
-                        <TabPanel>
-                            <p>three!</p>
-                        </TabPanel>
-                    </TabPanels>
-                </Block>
-            </Tabs>
-        </>
+            <Box w="100%" bg="Marionum.50" flexGrow={1}>
+                {/**
+                 * Utiliser IsLazy pour charger à la demande les contenus des panels (https://chakra-ui.com/docs/components/tabs/usage#lazily-mounting-tab-panels)
+                 * Si tout est préchargé, isLazy peut être supprimé.
+                 **/}
+                <Tabs variant="marionumNavigation" isLazy>
+                    <Block backgroundColor="white">
+                        <TabList>
+                            <Tab>Prochains TP</Tab>
+                            <Tab>Anciens TP</Tab>
+                            <Tab>TP Annulés</Tab>
+                        </TabList>
+                        <TabIndicator/>
+                    </Block>
+                    <Block hasTopBorder>
+                        <TabPanels>
+                            <TabPanel>
+                                <TPTable sort="desc" tpList={tpList}/>
+                            </TabPanel>
+                            <TabPanel>
+                                <p>two!</p>
+                            </TabPanel>
+                            <TabPanel>
+                                <p>three!</p>
+                            </TabPanel>
+                        </TabPanels>
+                    </Block>
+                </Tabs>
+            </Box>
+        </VStack>
     )
 };

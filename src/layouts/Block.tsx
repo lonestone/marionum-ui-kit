@@ -11,16 +11,23 @@ interface BlockProps {
      * Vertical padding inside the blocks.
      */
     paddingY?: SpaceProps["paddingY"]
-    hasBottomBorder?: boolean
+    hasTopBorder?: boolean
+    dockBottom?: boolean
+    isContent?: boolean
     children?: ReactNode;
 }
 
-export const Block = ({backgroundColor, paddingY, hasBottomBorder, children}: BlockProps) => (
-    // paddingX to avoid content being too close to page border
-    <Box w="100%" bg={backgroundColor} paddingX="32px" borderBottom={hasBottomBorder ? "1px" : "0px"} borderBottomColor="Marionum.200">
-        {/* margin 0 auto to center the content, maxWidth is content expected width */}
-        <Box m="0 auto" maxWidth="sizes.content" paddingY={paddingY}>
-            {children}
+export const Block = ({backgroundColor, paddingY, hasTopBorder, isContent, dockBottom, children}: BlockProps) => (
+    <>
+        {dockBottom && <Box height="70px"/>}
+        {/* paddingX to avoid content being too close to page border*/}
+        <Box w="100%" bg={backgroundColor} paddingX="32px" borderTop={hasTopBorder || dockBottom ? "1px" : "0px"}
+             borderColor="Marionum.200"
+             position={dockBottom ? 'fixed' : 'initial'} bottom="0px" flexGrow={isContent ? 1 : 0}>
+            {/* margin 0 auto to center the content, maxWidth is content expected width */}
+            <Box m="0 auto" maxWidth="sizes.content" paddingY={paddingY}>
+                {children}
+            </Box>
         </Box>
-    </Box>
+    </>
 );

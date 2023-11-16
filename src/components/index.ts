@@ -19,6 +19,8 @@ export {WithCalendar} from "./WithCalendar.tsx";
 export {Packet} from "./Packet/Packet.tsx";
 export {Comment} from "./Comment/Comment.tsx";
 export {Label} from "./Label.tsx";
+export {ButtonCheckbox} from "./ButtonCheckbox.tsx";
+export {LinkCard} from "./LinkCard/LinkCard.tsx";
 
 export type {ButtonProps} from './Button'
 export type {TitleBlockProps} from './Title/TitleBlock'

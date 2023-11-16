@@ -20,7 +20,7 @@ export const SnapshotListPage: React.FC = () => {
                     placeholderText="Rechercher un TP par tag, mots clés, etc."
                 />
             </TitleBlock>
-            <Accordion defaultIndex={[0]} allowMultiple>
+            <Accordion defaultIndex={[0]} allowMultiple borderTop="1px solid" borderColor="Marionum.200">
                 <AccordionSnapshotCategoryItem label="Ubuntu">
                     <Flex gap="24px" flexWrap="wrap">
                         {snapshotList.map(s => (

@@ -11,7 +11,7 @@ export interface LabelProps extends BoxProps {
  */
 export const Label = ({label, htmlFor, children, ...props}: PropsWithChildren<LabelProps>) => {
     return (
-        <Box as="label" htmlFor={htmlFor} marginTop="24px" display="block"  {...props}>
+        <Box as="label" htmlFor={htmlFor} marginTop="24px" display="block" {...props}>
             <Text as="div" fontSize="md" fontWeight="semibold" color="gray.500" marginBottom="8px">{label}</Text>
             {children}
         </Box>
