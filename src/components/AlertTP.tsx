@@ -5,7 +5,7 @@ import {PropsWithChildren} from "react";
 export const AlertTP = ({children, ...props}: PropsWithChildren<AlertProps>) => (
     <Alert status="info" width="100%" variant="marionum" borderRadius="6px" position="relative" p="0px" {...props}>
         <Image src={AlertBackground} objectFit='cover' position="absolute" w="100%" h="100%" alt=''/>
-        <Box p="10px 20px" zIndex={1}>
+        <Box p="10px 20px" w="100%" zIndex={1}>
             {children}
         </Box>
     </Alert>

@@ -9,7 +9,7 @@ export {FiEyeIcon} from './Icons/FiEyeIcon.tsx'
 export {ShareIcon} from './Icons/ShareIcon.tsx'
 export {QuoteIcon} from './Icons/QuoteIcon.tsx'
 export {StationIcon} from './Icons/StationIcon.tsx'
-export {StationAnimatorIcon} from './Icons/StationAnimatorIcon.tsx'
+export {StationAnimatorIllustration} from './Illustrations/StationAnimatorIllustration.tsx'
 export {AlertTP} from './AlertTP'
 export {Button} from './Button/Button.tsx'
 export {TitleBlock} from './Title/TitleBlock'
@@ -17,7 +17,7 @@ export {TitleSortAndSearch} from "./Title/TitleSortAndSearch.tsx";
 export {Step} from "./Step.tsx";
 export {StepProgress} from "./StepProgress.tsx";
 export {AccordionSnapshotCategoryItem} from "./AccordionSnapshotCategoryItem.tsx";
-export {Snapshot} from "./Snapshot/Snapshot.tsx";
+export {Snapshot, SnapshotSmall} from "./Snapshot/Snapshot.tsx";
 export {WithCalendar} from "./WithCalendar.tsx";
 export {Packet} from "./Packet/Packet.tsx";
 export {Comment} from "./Comment/Comment.tsx";

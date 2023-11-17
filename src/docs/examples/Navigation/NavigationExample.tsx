@@ -29,3 +29,25 @@ export const NavigationExample = ({tabIndex, handleTabsChange}: NavigationBlockP
         </Block>
     );
 }
+
+export const NavigationStudentExample = ({tabIndex, handleTabsChange}: NavigationBlockProps) => {
+    return (
+        <Block backgroundColor="Marionum.50" hasTopBorder>
+            <Flex alignItems="center">
+                <Tabs variant="marionumNavigation" index={tabIndex} onChange={handleTabsChange}>
+                    <TabList>
+                        <Tab>Travaux pratiques</Tab>
+                        <Tab>Ressources pédagogiques</Tab>
+                        <Tab>Aide</Tab>
+                        <Tab>Statistiques</Tab>
+                    </TabList>
+                    <TabIndicator/>
+                </Tabs>
+                <Spacer/>
+                <Flex alignItems="center" shrink={0} gap="16px">
+                    <Button variant="tertiary">Moddle</Button>
+                </Flex>
+            </Flex>
+        </Block>
+    );
+}

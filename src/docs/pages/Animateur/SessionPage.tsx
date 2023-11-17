@@ -34,8 +34,8 @@ const stationsDataExemple: StationProps[] = [
     {status: 'connected', statusText: 'Connecté', label: 'Poste 26', userName: 'Nom de l\'utilisateur'},
     {status: 'connected', statusText: 'Connecté', label: 'Poste 27', userName: 'Nom de l\'utilisateur'},
     {status: 'connected', statusText: 'Connecté', label: 'Poste 28', userName: 'Nom de l\'utilisateur'},
-    {status: 'connected', statusText: 'Connecté', label: 'Poste 29', userName: 'Nom de l\'utilisateur'},
-    {status: 'connected', statusText: 'Connecté', label: 'Poste 30', userName: 'Nom de l\'utilisateur'}
+    {status: 'disconnected', statusText: 'Connecté', label: 'Poste 29', userName: 'Nom de l\'utilisateur'},
+    {status: 'disconnected', statusText: 'Connecté', label: 'Poste 30', userName: 'Nom de l\'utilisateur'}
 ]
 
 export const SessionPage: React.FC = () => {

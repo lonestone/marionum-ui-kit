@@ -16,10 +16,10 @@ import {PropsWithChildren, ReactNode} from "react";
 import {BackgroundProps, BorderProps, ColorProps, LayoutProps} from "@chakra-ui/styled-system";
 import {WarningTwoIcon} from "@chakra-ui/icons";
 import {FiMoreHorizontal} from "react-icons/fi";
-import {Button, StationAnimatorIcon, StationIcon} from "marionum-ui-kit";
+import {Button, StationAnimatorIllustration, StationIcon} from "marionum-ui-kit";
 
 export interface StationProps extends BoxProps {
-    status: "open" | "connected" | "error" | "unavailable"
+    status: "open" | "connected" | "disconnected" | "error" | "unavailable"
     statusText: string
     label: string
     userName: string
@@ -55,11 +55,13 @@ export const Station = ({
         props.width = "378px";
         props.height = "207px";
         cardStyles.height = "186px";
-        stationIcon = <StationAnimatorIcon position="absolute"
-                                           right="30px"
-                                           bottom="-16px"
-                                           width="189px"
-                                           height="216px"/>;
+        stationIcon = <StationAnimatorIllustration position="absolute"
+                                                   right="30px"
+                                                   bottom="-16px"
+                                                   width="189px"
+                                                   height="216px"
+                                                   isConnected={status === 'connected'}
+        />;
     }
     switch (status) {
         case "open":
@@ -75,6 +77,20 @@ export const Station = ({
             if (stationIcon == null) {
                 stationIcon = <StationIcon primaryColor="green.400"
                                            secondaryColor="green.100"
+                                           position="absolute"
+                                           right="-8px"
+                                           bottom="-10px"
+                                           width="41px"
+                                           height="48px"/>
+            }
+            break;
+        case "disconnected":
+            statusStyles.bgColor = "gray.50";
+            statusStyles.color = "gray.500";
+            statusIcon = <Circle size="8px" bgColor="gray.500"/>
+            if (stationIcon == null) {
+                stationIcon = <StationIcon primaryColor="gray.400"
+                                           secondaryColor="gray.100"
                                            position="absolute"
                                            right="-8px"
                                            bottom="-10px"
