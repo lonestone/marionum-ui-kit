@@ -186,6 +186,18 @@ const sizes = {
         fontSize: "xs",
         px: "1rem",
     }),
+    '2xs': defineStyle({
+        h: "32px",
+        minW: "32px",
+        fontSize: "sm",
+        px: "0.625rem",
+    }),
+    '3xs': defineStyle({
+        h: "24px",
+        minW: "24px",
+        fontSize: "xs",
+        px: "0.25rem",
+    }),
 }
 
 export const buttonTheme = defineStyleConfig({

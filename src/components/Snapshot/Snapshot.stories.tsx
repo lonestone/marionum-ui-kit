@@ -5,7 +5,7 @@ import {Flex} from "@chakra-ui/react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-    title: 'Marionum/Components/Snapshot',
+    title: 'Marionum/Components/Stories',
     parameters: {
         layout: 'centered',
     },
@@ -19,7 +19,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<SnapshotProps>;
 
-export const Default: Story = {
+export const SnapshotStory: Story = {
     render: ({title, date, description, tags, onClick}) => (
         <Flex gap="16px">
             <Snapshot title={title} date={date} description={description} tags={tags} onClick={onClick}/>

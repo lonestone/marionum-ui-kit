@@ -28,6 +28,7 @@ const theme = extendTheme({
             600: "#4242E5",
             700: "#3430D1",
             800: "#2B28AF",
+            900: "#252290",
             950: "#141562",
         }
     },
@@ -39,6 +40,7 @@ const theme = extendTheme({
         Tags: tagsTheme,
         Badge: defineStyleConfig({baseStyle: {textTransform: 'inherit'}}),
         Card: defineStyleConfig({baseStyle: {borderColor: 'Marionum.200'}}),
+        Progress: defineStyleConfig({baseStyle: {filledTrack: {bg: 'Marionum.900'}}}),
         Table: tableTheme,
         Text: {
             defaultProps: {

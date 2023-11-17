@@ -1,5 +1,7 @@
-export const SuspensionPointsIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" {...props}>
+import {Icon, IconProps} from "@chakra-ui/react";
+
+export const SuspensionPointsIcon = (props: IconProps) => (
+    <Icon xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" {...props}>
         <path fillRule="evenodd" clipRule="evenodd"
               d="M7.5 9C7.5 8.17157 8.17157 7.5 9 7.5C9.82843 7.5 10.5 8.17157 10.5 9C10.5 9.82843 9.82843 10.5 9 10.5C8.17157 10.5 7.5 9.82843 7.5 9Z"
               fill="currentColor"/>
@@ -9,5 +11,5 @@ export const SuspensionPointsIcon = (props: React.SVGProps<SVGSVGElement>) => (
         <path fillRule="evenodd" clipRule="evenodd"
               d="M2.25 9C2.25 8.17157 2.92157 7.5 3.75 7.5C4.57843 7.5 5.25 8.17157 5.25 9C5.25 9.82843 4.57843 10.5 3.75 10.5C2.92157 10.5 2.25 9.82843 2.25 9Z"
               fill="currentColor"/>
-    </svg>
+    </Icon>
 )

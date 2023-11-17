@@ -4,7 +4,7 @@ import {Comment, CommentProps} from './Comment.tsx';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-    title: 'Marionum/Components/Comment',
+    title: 'Marionum/Components/Stories',
     parameters: {
         layout: 'centered',
     },
@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<CommentProps>;
 
-export const Default: Story = {
+export const CommentStory: Story = {
     render: ({text, author, date}) => (
         <Comment text={text} author={author} date={date}/>
     ),

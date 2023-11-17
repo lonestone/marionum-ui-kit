@@ -4,7 +4,7 @@ import {Packet, PacketProps} from './Packet.tsx';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-    title: 'Marionum/Components/Packet',
+    title: 'Marionum/Components/Stories',
     parameters: {
         layout: 'centered',
     },
@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<PacketProps>;
 
-export const Default: Story = {
+export const PacketStory: Story = {
     render: ({title, version, imageUrl}) => (
         <Packet title={title} version={version} imageUrl={imageUrl} w="384px"/>
     ),

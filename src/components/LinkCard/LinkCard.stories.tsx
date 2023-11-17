@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {LinkCard, LinkCardProps} from './LinkCard.tsx';
 
 const meta = {
-    title: 'MarioNUM/Examples/Stories',
+    title: 'Marionum/Components/Stories',
     component: LinkCard,
     parameters: {
         layout: 'fullscreen',

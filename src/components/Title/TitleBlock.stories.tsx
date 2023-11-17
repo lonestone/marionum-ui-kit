@@ -6,7 +6,7 @@ import {Box, Spacer} from "@chakra-ui/react";
 import {Button, StepProgress, StepProgressProps, TitleSortAndSearch, TitleSortAndSearchProps} from "marionum-ui-kit";
 
 const meta = {
-    title: 'MarioNUM/Components/Title',
+    title: 'Marionum/Components/Stories',
     parameters: {
         layout: 'fullscreen',
         docs: {
@@ -18,7 +18,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<TitleBlockProps & TitleSortAndSearchProps>;
 
-export const Default: Story = {
+export const TitleDefaultStory: Story = {
     render: ({label, placeholderText, onSearch, onSort}) => {
         return <TitleBlock label={label}>
             <TitleSortAndSearch placeholderText={placeholderText} onSearch={onSearch} onSort={onSort}/>
