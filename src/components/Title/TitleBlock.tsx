@@ -1,6 +1,6 @@
-import {Block} from "marionum-ui-kit";
 import {Flex, Heading} from "@chakra-ui/react";
 import {PropsWithChildren} from "react";
+import { Block } from "../../layouts";
 
 export interface TitleBlockProps {
     /**

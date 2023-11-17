@@ -1,5 +1,7 @@
 import {Button as ChakraButton, ButtonProps, Flex, Tag, Text} from "@chakra-ui/react";
-import {Button, CalendarIcon, FiEyeIcon} from "marionum-ui-kit";
+import {CalendarIcon} from "../Icons/CalendarIcon.tsx";
+import {Button} from "../Button/Button.tsx";
+import {FiEyeIcon} from "../Icons/FiEyeIcon.tsx";
 
 export interface SnapshotProps extends ButtonProps {
     title: string,

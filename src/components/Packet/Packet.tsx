@@ -1,5 +1,5 @@
 import {Card, CardBody, CardProps, Heading, HStack, Image, Text} from "@chakra-ui/react";
-import {CalendarIcon} from "marionum-ui-kit";
+import {CalendarIcon} from "../Icons/CalendarIcon.tsx";
 
 export interface PacketProps extends CardProps {
     imageUrl: string,

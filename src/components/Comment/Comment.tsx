@@ -1,5 +1,5 @@
 import {StackProps, Text, VStack} from "@chakra-ui/react";
-import {QuoteIcon} from "marionum-ui-kit";
+import {QuoteIcon} from "../Icons/QuoteIcon.tsx";
 
 export interface CommentProps extends StackProps {
     text: string,

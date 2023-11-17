@@ -1,4 +1,4 @@
-export const FiEyeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const DuplicateIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" {...props}>
         <path fillRule="evenodd" clipRule="evenodd"
               d="M6.50391 5.0625C5.70784 5.0625 5.0625 5.70784 5.0625 6.50391V14.3086C5.0625 15.1047 5.70784 15.75 6.50391 15.75H14.3086C15.1047 15.75 15.75 15.1047 15.75 14.3086V6.50391C15.75 5.70784 15.1047 5.0625 14.3086 5.0625H6.50391ZM3.9375 6.50391C3.9375 5.08652 5.08652 3.9375 6.50391 3.9375H14.3086C15.726 3.9375 16.875 5.08652 16.875 6.50391V14.3086C16.875 15.726 15.726 16.875 14.3086 16.875H6.50391C5.08652 16.875 3.9375 15.726 3.9375 14.3086V6.50391Z"

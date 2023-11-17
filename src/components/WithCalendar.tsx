@@ -1,6 +1,6 @@
 import {Flex, HStack, StackProps} from "@chakra-ui/react";
 import {PropsWithChildren} from "react";
-import {CalendarIcon} from "marionum-ui-kit";
+import { CalendarIcon } from "./Icons/CalendarIcon";
 
 export const WithCalendar = ({children, ...props}: PropsWithChildren<StackProps>) => {
     return (

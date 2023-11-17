@@ -1,6 +1,6 @@
-import {Button} from "marionum-ui-kit";
 import {Text, useToast, VStack} from "@chakra-ui/react";
 import {FiCopy} from "react-icons/fi";
+import { Button } from "../Button/Button";
 
 export interface LinkCardProps {
     label: string

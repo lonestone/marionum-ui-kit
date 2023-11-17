@@ -1,6 +1,6 @@
 import {PropsWithChildren} from "react";
 import {AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Heading} from "@chakra-ui/react";
-import {Block} from "marionum-ui-kit";
+import {Block} from "../layouts";
 
 export interface AccordionSnapshotCategoryItemProps {
     label: string
