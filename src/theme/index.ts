@@ -39,7 +39,13 @@ const theme = extendTheme({
         Button: buttonTheme,
         Accordion: accordionTheme,
         Tags: tagsTheme,
-        Checkbox: defineStyleConfig({baseStyle: {control: {bgColor: 'white', width: '20px', height: '20px'}}}),
+        Checkbox: defineStyleConfig({
+            baseStyle: {
+                control: {
+                    bgColor: 'white', width: '20px', height: '20px', _checked: {bgColor: 'Marionum.700'}
+                }
+            }
+        }),
         Badge: defineStyleConfig({baseStyle: {textTransform: 'inherit'}}),
         Card: defineStyleConfig({baseStyle: {borderColor: 'Marionum.200'}}),
         Progress: defineStyleConfig({baseStyle: {filledTrack: {bg: 'Marionum.900'}}}),

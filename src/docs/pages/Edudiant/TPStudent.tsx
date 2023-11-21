@@ -62,7 +62,7 @@ export const TPStudent: React.FC = () => {
                  **/}
                 <Tabs variant="marionumNavigation" isLazy>
                     <Block backgroundColor="white">
-                        <TabList>
+                        <TabList fontWeight="bold">
                             <Tab>Prochains TP</Tab>
                             <Tab>Mes activités passées</Tab>
                         </TabList>

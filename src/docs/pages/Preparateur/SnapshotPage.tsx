@@ -1,5 +1,5 @@
 import {Block, Button, Comment, Packet, WithCalendar} from "marionum-ui-kit";
-import {NavigationExample} from "../../examples/Navigation/NavigationExample.tsx";
+import {NavigationAdminExample, NavigationExample} from "../../examples/Navigation/NavigationExample.tsx";
 import {exampleHeaderProps, HeaderExample} from "../../examples/Header/HeaderExample.tsx";
 import {
     Badge,
@@ -33,12 +33,13 @@ import {
     UseModalProps,
     VStack
 } from "@chakra-ui/react";
-import {ArrowBackIcon} from '@chakra-ui/icons'
+import {ArrowBackIcon, CheckIcon, CloseIcon} from '@chakra-ui/icons'
 import {IoArchiveOutline, IoBugOutline, IoDuplicateOutline} from 'react-icons/io5'
 import {MdDeleteOutline} from 'react-icons/md'
 import {BiEditAlt} from 'react-icons/bi'
 import {PiDotsThreeBold} from 'react-icons/pi'
 import {FiCopy, FiShare2} from 'react-icons/fi'
+import {RiDashboard3Line} from "react-icons/ri";
 
 const noop = () => {
 };
@@ -92,7 +93,7 @@ const DiffuseConfirmModal = ({onDiffuse, isOpen, onClose, ...props}: DiffuseConf
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button onClick={noop} variant="secondary" leftIcon={<FiCopy />} mr={3} fontSize="md">
+                    <Button onClick={noop} variant="secondary" leftIcon={<FiCopy/>} mr={3} fontSize="md">
                         Copier le lien
                     </Button>
                     <Spacer/>
@@ -190,13 +191,15 @@ export const SnapshotPageContentExample = () => (<>
     </TableContainer>
 </>)
 
-export const SnapshotPage: React.FC = () => {
+export const SnapshotPage: React.FC<{ adminVariant?: boolean }> = ({adminVariant}) => {
     const {isOpen: isDiffuseModalOpen, onOpen: onDiffuseModalOpen, onClose: onDiffuseModalClose} = useDisclosure()
+
+    const NavExemple = adminVariant ? NavigationAdminExample : NavigationExample
 
     return (
         <>
             <HeaderExample {...exampleHeaderProps}/>
-            <NavigationExample tabIndex={1} handleTabsChange={noop}/>
+            <NavExemple tabIndex={1} handleTabsChange={noop}/>
             {/* Block pour background et largeur du contenu de la page */}
             <Block backgroundColor="white" paddingY="24px">
                 {/* Titre, lien de retour et actions */}
@@ -215,26 +218,40 @@ export const SnapshotPage: React.FC = () => {
                         </HStack>
                     </VStack>
                     <Spacer/>
-                    <Button variant="tertiary" size="lg" leftIcon={<IoDuplicateOutline/>} flexShrink={0}>Dupliquer ce
-                        snapshot</Button>
-                    <Button onClick={onDiffuseModalOpen} variant="primary" size="lg"
-                            leftIcon={<FiShare2/>}>Diffuser</Button>
-                    <DiffuseConfirmModal isOpen={isDiffuseModalOpen} onClose={onDiffuseModalClose}
-                                         onDiffuse={noop}/>
-                    <Menu>
-                        <MenuButton as={Button} aria-label='Options' variant="icon" size="lg">
-                            <PiDotsThreeBold size="1.5rem" style={{margin: "0 auto"}}/>
-                        </MenuButton>
-                        <MenuList>
-                            <MenuItem icon={<IoBugOutline size="1.5rem"/>}>Tester</MenuItem>
-                            <MenuItem icon={<IoArchiveOutline size="1.5rem"/>}>Archiver</MenuItem>
-                            <MenuItem icon={<BiEditAlt size="1.5rem"/>}>Modifier</MenuItem>
-                            <MenuItem icon={<MdDeleteOutline size="1.5rem"/>}>Supprimer</MenuItem>
-                        </MenuList>
-                    </Menu>
+                    {!adminVariant && <>
+                        <Button variant="tertiary" size="lg" leftIcon={<IoDuplicateOutline/>} flexShrink={0}>Dupliquer
+                            ce
+                            snapshot</Button>
+                        <Button onClick={onDiffuseModalOpen} variant="primary" size="lg"
+                                leftIcon={<FiShare2/>}>Diffuser</Button>
+                        <DiffuseConfirmModal isOpen={isDiffuseModalOpen} onClose={onDiffuseModalClose}
+                                             onDiffuse={noop}/>
+                        <Menu>
+                            <MenuButton as={Button} aria-label='Options' variant="icon" size="lg">
+                                <PiDotsThreeBold size="1.5rem" style={{margin: "0 auto"}}/>
+                            </MenuButton>
+                            <MenuList>
+                                <MenuItem icon={<IoBugOutline size="1.5rem"/>}>Tester</MenuItem>
+                                <MenuItem icon={<IoArchiveOutline size="1.5rem"/>}>Archiver</MenuItem>
+                                <MenuItem icon={<BiEditAlt size="1.5rem"/>}>Modifier</MenuItem>
+                                <MenuItem icon={<MdDeleteOutline size="1.5rem"/>}>Supprimer</MenuItem>
+                            </MenuList>
+                        </Menu>
+                    </>}
+                    {adminVariant && <>
+                        <Button variant="tertiary" size="lg" leftIcon={<RiDashboard3Line/>} flexShrink={0}>
+                            Tester
+                        </Button>
+                        <Button variant="tertiary" size="lg" leftIcon={<CloseIcon boxSize="0.7rem"/>} flexShrink={0}>
+                            Refuser
+                        </Button>
+                        <Button variant="primary" size="lg" leftIcon={<CheckIcon boxSize="0.9rem"/>} flexShrink={0}>
+                            Valider
+                        </Button>
+                    </>}
                 </Flex>
 
-                <SnapshotPageContentExample />
+                <SnapshotPageContentExample/>
             </Block>
         </>
     );

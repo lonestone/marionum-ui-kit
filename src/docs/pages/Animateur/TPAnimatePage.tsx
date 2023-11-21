@@ -57,7 +57,7 @@ export const TPAnimatePage: React.FC = () => {
                  **/}
                 <Tabs variant="marionumNavigation" isLazy>
                     <Block backgroundColor="white">
-                        <TabList>
+                        <TabList fontWeight="bold">
                             <Tab>Prochains TP</Tab>
                             <Tab>Anciens TP</Tab>
                             <Tab>TP Annulés</Tab>
