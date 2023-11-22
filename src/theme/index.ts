@@ -54,7 +54,16 @@ const theme = extendTheme({
             defaultProps: {
                 as: 'div'
             }
-        }
+        },
+        Breadcrumb: defineStyleConfig({
+            baseStyle: {
+                link: {
+                    "&:not([aria-current=page])": {
+                        color: 'gray.500'
+                    },
+                }
+            }
+        })
     }
 })
 

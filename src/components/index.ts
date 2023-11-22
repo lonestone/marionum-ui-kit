@@ -10,7 +10,7 @@ export {ShareIcon} from './Icons/ShareIcon.tsx'
 export {QuoteIcon} from './Icons/QuoteIcon.tsx'
 export {StationIcon} from './Icons/StationIcon.tsx'
 export {StationAnimatorIllustration} from './Illustrations/StationAnimatorIllustration.tsx'
-export {AlertTP} from './AlertTP'
+export {AlertTP} from './AlertTP/AlertTP.tsx'
 export {Button} from './Button/Button.tsx'
 export {TitleBlock} from './Title/TitleBlock'
 export {TitleSortAndSearch} from "./Title/TitleSortAndSearch.tsx";
