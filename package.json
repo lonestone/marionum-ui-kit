@@ -1,7 +1,7 @@
 {
   "name": "marionum-ui-kit",
   "private": true,
-  "version": "0.0.4",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/marionum-ui-kit.umd.cjs",
   "module": "./dist/marionum-ui-kit.js",
