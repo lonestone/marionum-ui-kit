@@ -12,7 +12,7 @@ import {
     Stack,
     Text
 } from "@chakra-ui/react";
-import {Button} from "marionum-ui-kit";
+import { Button } from '../Button/Button.tsx';
 
 const meta = {
     title: 'MarioNUM/Components/Stories',

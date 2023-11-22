@@ -19,7 +19,7 @@ import {
     Text,
     VStack
 } from "@chakra-ui/react";
-import {tpListDataExample, TPListExample} from "../../examples/TPListExample/TPListExample.tsx";
+import {tpListDataExample, TPListExample} from "../../examples/TPList/TPListExample.tsx";
 import {MyMachineButton} from "../../../components/MyMachineButton.tsx";
 
 

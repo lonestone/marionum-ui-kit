@@ -87,10 +87,16 @@ const institutionsMockData: InstitutionData[] = [
     },
 ]
 
+export const SliderMarkCircle: React.FC<{ isActive: boolean }> = ({isActive}) => (
+    <Center>
+        <Circle position="absolute" size="18px" bgColor={isActive ? "Marionum.700" : "gray.200"}/>
+        <Circle position="absolute" size="14px" bgColor="white"/>
+    </Center>
+)
 /**
  * Ce slider un peu spécifique est ici implémenté de sorte à modifier l'objet user passé en paramètre.
  * Si les données d'entrées sont immuables, il est recommandé :
- * - soit de le transformer en composant controllé agnostique (en lui ajoutant des props "value" et "onChanged" et en enlevant tout étant),
+ * - soit de le transformer en composant controllé agnostique (en lui ajoutant des props "value" et "onChanged" et en enlevant tout état interne),
  * - soit de le transformer en composant métier directement branché sur l'état applicatif (on lui fournira alors un userId en props plutôt qu'un objet complet)
  */
 export const PermissionSlider: React.FC<SliderProps & { user: UserData }> = ({user, ...props}) => {
@@ -110,29 +116,16 @@ export const PermissionSlider: React.FC<SliderProps & { user: UserData }> = ({us
                    value={sliderValue} isDisabled={user.roleLevel === undefined}
                    {...props}>
         <SliderMark value={0}{...labelStyles}>
-            <Center>
-                <Circle position="absolute" size="18px"
-                        bgColor={user.roleLevel !== undefined && sliderValue >= 0 ? "Marionum.700" : "gray.200"}/>
-                <Circle position="absolute" size="14px" bgColor="white"/>
-            </Center>
+            <SliderMarkCircle isActive={user.roleLevel !== undefined && sliderValue >= 0}/>
         </SliderMark>
         <SliderMark value={1}{...labelStyles}>
-            <Center>
-                <Circle position="absolute" size="18px" bgColor={sliderValue >= 1 ? "Marionum.700" : "gray.200"}/>
-                <Circle position="absolute" size="14px" bgColor="white"/>
-            </Center>
+            <SliderMarkCircle isActive={sliderValue >= 1}/>
         </SliderMark>
         <SliderMark value={2} {...labelStyles}>
-            <Center>
-                <Circle position="absolute" size="18px" bgColor={sliderValue >= 2 ? "Marionum.700" : "gray.200"}/>
-                <Circle position="absolute" size="14px" bgColor="white"/>
-            </Center>
+            <SliderMarkCircle isActive={sliderValue >= 2}/>
         </SliderMark>
         <SliderMark value={3} {...labelStyles}>
-            <Center>
-                <Circle position="absolute" size="18px" bgColor={sliderValue >= 3 ? "Marionum.700" : "gray.200"}/>
-                <Circle position="absolute" size="14px" bgColor="white"/>
-            </Center>
+            <SliderMarkCircle isActive={sliderValue >= 3}/>
         </SliderMark>
         <SliderTrack bgColor="gray.200">
             <SliderFilledTrack bgColor="Marionum.700"/>

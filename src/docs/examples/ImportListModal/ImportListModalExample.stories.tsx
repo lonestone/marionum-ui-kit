@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import {ImportListModalExample} from './ImportListModalExample.tsx';
 import {Box, useDisclosure} from "@chakra-ui/react";
-import {Button} from "marionum-ui-kit";
+import { Button } from '../../../components/Button/Button.tsx';
 
 const meta = {
     title: 'MarioNUM/Examples/Stories',

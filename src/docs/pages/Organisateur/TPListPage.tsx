@@ -4,7 +4,7 @@ import {exampleHeaderProps, HeaderExample} from "../../examples/Header/HeaderExa
 import {Box, Flex, Spacer, Tab, TabIndicator, TabList, TabPanel, TabPanels, Tabs, Text, VStack} from "@chakra-ui/react";
 import {RiCheckboxCircleFill} from "react-icons/ri";
 import {AddIcon} from "@chakra-ui/icons";
-import {tpListDataExample, TPListExample} from "../../examples/TPListExample/TPListExample.tsx";
+import {tpListDataExample, TPListExample} from "../../examples/TPList/TPListExample.tsx";
 
 export const TPListPage: React.FC = () => {
     return (
